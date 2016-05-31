@@ -1,0 +1,24 @@
+{
+  "name": "LinYiMobileWeb",
+  "version": "0.0.1",
+  "description": "一个基于NodeJS的简单的网站基本信息管理系统.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaymi66/LinYiMobileWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaymi66/LinYiMobileWeb/issues"
+  },
+  "homepage": "https://github.com/Jaymi66/LinYiMobileWeb#readme"
+}

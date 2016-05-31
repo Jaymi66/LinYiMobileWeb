@@ -1,0 +1,25 @@
+'use strict'
+
+var express = require('express');
+var path = require('path');
+var port = process.env.PORT || 3000;
+var app = express();
+
+var routes = require('./routes/index');
+var admin = require('./routes/admin');
+
+
+app.set("views", path.join(__dirname, "views"));
+app.set('view engine', 'jade');
+app.use(express.static(path.join(__dirname, 'public/libs')));
+
+
+app.use('/', routes);
+app.use('/admin', admin);
+
+
+var server = app.listen(port, function(){
+	var host = server.address().address;
+	console.log(host);
+	console.log('kinms listening at http://localhost:'+port);
+});

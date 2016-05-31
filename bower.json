@@ -1,0 +1,22 @@
+{
+  "name": "kinms",
+  "homepage": "https://github.com/Jaymi66/LinYiMobileWeb",
+  "authors": [
+    "晓强 <878773559@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^1.11.3"
+  }
+}
