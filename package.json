@@ -4,8 +4,10 @@
   "description": "一个基于NodeJS的简单的网站基本信息管理系统.",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "jade": "^1.11.0",
+    "multer": "^1.1.0",
     "mysql": "^2.10.2"
   },
   "devDependencies": {
