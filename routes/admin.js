@@ -3,7 +3,7 @@ var router = express.Router()
 
 // admin page
 router.get('/', function(request, response){
-	response.render('admin/index', {
+	response.render('admin/login', {
 		title: 'Kinms后台管理'
 	})
 })
