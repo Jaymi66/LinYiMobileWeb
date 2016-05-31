@@ -17,6 +17,8 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "jquery": "^1.11.3"
+    "jquery": "^2.2.4",
+    "metisMenu": "^2.5.2",
+    "font-awesome": "^4.6.3"
   }
 }

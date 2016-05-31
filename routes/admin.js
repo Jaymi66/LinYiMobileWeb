@@ -8,4 +8,11 @@ router.get('/', function(request, response){
 	})
 })
 
+router.get('/index', function(request, response){
+	response.render('admin/index', {
+		title: 'Kinms后台管理'
+	})
+})
+
+
 module.exports = router
