@@ -11,7 +11,8 @@ var admin = require('./routes/admin');
 
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'jade');
-app.use(express.static(path.join(__dirname, 'public/libs')));
+// 静态资源文件路径
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', routes);
