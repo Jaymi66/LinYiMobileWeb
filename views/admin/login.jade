@@ -10,11 +10,11 @@ html
 						.panel-heading
 							h3.panel-title 登陆
 						.panel-body
-							form(role="form")
+							form(role="form", action="/admin/login")
 								fieldset
 									.form-group
-										input.form-control(name="userName", type="text",placeholder="用户名", autofocus)
+										input.form-control(name="username", type="text",placeholder="用户名", autofocus)
 									.form-group
 										input.form-control(name="password", type="password", placeholder="密码")
-									a.btn.btn-success.btn-block(href="/admin/index") 登陆
+									button.btn.btn-success.btn-block(type="submit") 登陆
 	include ./inc/baseJs
