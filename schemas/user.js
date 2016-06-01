@@ -18,7 +18,7 @@ var User = sequelize.define('user', {
 		'type': Sequelize.INTEGER, // 类型
 		'autoIncrement' : true, // 自增
 		'unique': true, // 值唯一
-		'field': 'first_name' // Will result in an attribute that is firstName when user facing but first_name in the database
+		// 'field': 'first_name' //  如果有该参数  使用此参数作为字段名称
 	},
 	'username': {
 		'type': Sequelize.STRING,
@@ -31,7 +31,9 @@ var User = sequelize.define('user', {
 
 }, {
   	'freezeTableName': true, // Model tableName will be the same as the model name
-  	'tableName': 'user'
+  	'tableName': 'user',
+  	'timestamps': false,
+  	'createdAt': false
 });
 
 module.exports = User

@@ -24,13 +24,14 @@ router.post('/login', function(req, res) {
 		var _username = req.body.username;
 		var _password = req.body.password;
 		console.log(_username, _password)
+		
 		var user = User.build({
-			'id': '2',
 			'username': 'admin',
 			'password': '123456'
-
 		})
 		user.save();
+		// var user = User.find({})
+		// console.log(user)
 	}
 })
 

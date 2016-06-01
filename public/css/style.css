@@ -3,7 +3,7 @@
 html {
 	width: 100%;
 	height: 100%;
-	font-size: 16px
+	font-size: 16px;
 }
 body, p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form {
 	margin: 0;
@@ -22,7 +22,7 @@ img {
 }
 body {
 	font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
-	color: #666;
+	/*color: #666;*/
 	-webkit-user-select: none;
 	-webkit-text-size-adjust: none
 }
@@ -83,12 +83,160 @@ input[type="number"] {
 .pa {
 	position: absolute
 }
+/*rem单位转换
+@rem: 16 * 1rem;*/
+/*临沂景区手机站—首页*/
 .mobile-container {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 640px;
 	min-width: 320px;
-	overflow-x: hidden
+	min-height: 510px;
+	height: 100%;
+	overflow-x: hidden;
+}
+.headerOne{
+	height:500px ;
+	background: url(../images/top1.png) no-repeat left top;
+	background-size:100%;
+}
+.ad_run{
+	padding: 10px 5px 10px 10px;
+	background: #555553;
+}
+.ad_run_con{
+	color: #fff;
+	font-weight: bolder;
+	font-size: 15px;
+}
+.scenic-lineOne{
+	text-align: center;
+	height: 60px;
+	background: url(../images/bg-2.png);
+	background-size: 100% 100%;
+}
+.scenic-lineOne a{
+	display: inline-block;
+	width: 100%;
+	background: rgba(255,255,255,0.5);
+	color: #4C4C4C;
+	font-size: 16px;
+	text-decoration: underline;
+	line-height: 50px;
+}
+/*临沂景区手机站—三级2*/
+.header{
+	width: 100%;
+	height: 100%;
+}
+.scenic{
+	padding: 20px 10px;
+	text-align: left;
+	background: white;
+}
+.scenic_info p {
+	line-height: 3;
+	font-weight: bolder;
+	position: relative;
+	padding-right: 50px;
+	padding-left: 80px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.scenic_info p .detail_title {
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: #666;
+}
+.scenic_info p .detail_icon {
+	font-weight:bolder;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.scenic_info p img{
+	width:14px;
+	height:16px;
+}
+.scenic-line{
+	height: 10px;
+	background: url(../images/bg-2.png);
+	background-size: 100% 100%;
+}
+.scenic_rote p{
+	font-weight: bolder;
+	line-height: 2;
+}
+.rote_title{
+	color: #666;
+}
+.rote_a{
+	color: #4EAEFD;
+}
+.review{
+	border-top: solid 1px #C6C6C5;
+	padding: 15px 0;
+}
+.review_title{
+	font-weight: bolder;
+	margin-bottom: 10px;
+	color: #666;
+}
+.review_title font{
+	font-size: 12px;
+}
+.review_title a{
+	color: #FF8C23;
+}
+.review_imgW{
+	width: 35px;
+	margin-right: 5px;
+}
+.review_imgP{
+	width: 40px;
+	margin-right: 5px;
+}
+.review_imgXX{
+	width: 60px;
+	margin-top: 10px;
+	float: left;
+}
+.review_imgT{
+	width:16px;
+	color:#C6C6C5;
+	margin-right: 5px;
+	margin-top: -5px;
+}
+.review_person{
+	float: left;
+	text-align: center;
+}
+.review_personName{
+	font-size: 12px;
+	color: #4CB1D3;
+}
+.review_time{
+	float: right;
+	color: #666;
+	font-size: 14px;
+}
+.review_con{
+	font-weight: bolder;
+	padding: 10px 0;
+	line-height: 1.7;
+}
+.review_more{
+	padding: 10px 0;
+	text-align: center;
+}
+.review_more a{
+	border:solid 1px #2B94FC;
+	padding:15px 25px;
+	color: #2B94FC;
+	font-size: 16px;
+	border-radius: 5px;
 }
 @media only screen and (min-width:320px) and (max-width:359px) {
 	html {
@@ -125,3 +273,5 @@ input[type="number"] {
 		min-width: 540px
 	}
 }
+
+
