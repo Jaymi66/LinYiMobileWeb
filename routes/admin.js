@@ -1,6 +1,9 @@
 var express = require('express')
 var router = express.Router()
 
+var User = require('../schemas/user')
+
+
 // admin page
 router.get('/', function(req, res){
 	res.render('admin/login', {
@@ -16,13 +19,14 @@ router.get('/login', function(req, res) {
 
 router.post('/login', function(req, res) {
 
+	if( req.body.username && req.body.password ){
 
-	var _username = req.query.username;
-	var _password = req.query.password;
+		var _username = req.body.username;
+		var _password = req.body.password;
+		console.log(_username, _password)
 
-	console.log(_username)
-	console.log(req)
-	// res.render('admin/index')
+	}
+
 })
 
 router.get('/index', function(req, res){

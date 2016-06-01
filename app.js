@@ -5,7 +5,8 @@ var path = require('path');
 var port = process.env.PORT || 3000;
 var app = express();
 var bodyParser = require('body-parser');
-var multer  = require('multer');
+// var multer = require('multer');
+// var upload = multer({ dest: 'uploads/' })
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
@@ -17,8 +18,8 @@ app.set('view engine', 'jade');
 app.use("/", express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-// app.use(multer());
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(multer);
 
 app.use('/', routes);
 app.use('/admin', admin);
