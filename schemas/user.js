@@ -4,7 +4,7 @@ var sequelize = new Sequelize('linyimobileweb', 'root', 'root', {
 	host: 'localhost',
 	dialect: 'mysql',
 	port: '3306',
-	pool: {
+	pool: { // 链接池
 		max: 5,
 		min: 0,
 		idle: 10000

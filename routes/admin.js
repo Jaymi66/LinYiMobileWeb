@@ -1,8 +1,6 @@
 var express = require('express')
 var router = express.Router()
-
 var User = require('../schemas/user')
-
 
 // admin page
 router.get('/', function(req, res){
@@ -25,11 +23,14 @@ router.post('/login', function(req, res) {
 		var _password = req.body.password;
 		console.log(_username, _password)
 		
-		var user = User.build({
+
+		User.build({
 			'username': 'admin',
 			'password': '123456'
-		})
-		user.save();
+		}).save()
+
+		// res.redirect('/index');
+		//next();
 		// var user = User.find({})
 		// console.log(user)
 	}

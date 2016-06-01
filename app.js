@@ -19,7 +19,7 @@ app.use("/", express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(multer);
+
 
 app.use('/', routes);
 app.use('/admin', admin);
