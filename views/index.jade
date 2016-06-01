@@ -1,19 +1,19 @@
 doctype
 html
 	head
-		meta(charset="utf-8")
-		meta(http-equiv="X-UA-Compatible", content="IE=edge")
-		meta(name="viewport", content="width=device-width, initial-scale=1")
-		meta(name="description", content="")
-		meta(name="author", content="")
-		title #{title}
-		link(href="/libs/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
-		<!--[if lt IE 9]>
-		script(src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js")
-		script(src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js")
-		<![endif]-->
+		include ./includes/head
 	body
-		
-		h1 #{title}
-	script(src="/libs/jquery/dist/jquery.min.js")
-	script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
+		.mobile-container
+			.header
+				img(src="/images/top1.png")
+			.ad_run
+				marquee.ad_run_con(scrollamount="2", direction="Left")
+					p “亲情沂蒙”新媒体采风活动之“红色沂蒙”“绿色沂蒙”
+			div
+				img(src="/images/mengshan.png")
+			div
+				img(src="/images/yimenghu.png")
+			div
+				img(src="/images/guanbiwenquan.png")
+			.scenic-lineOne
+				a(href="#") 查看更多

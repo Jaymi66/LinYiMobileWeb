@@ -8,8 +8,14 @@ router.get('/', function(request, response){
 	})
 })
 
-router.get('/list', function(request, response){
-	response.render('list', {
+router.get('/index', function(request, response){
+	response.render('index', {
+		title: "首页"
+	})
+})
+
+router.get('/detail', function(request, response){
+	response.render('detail', {
 		title: "Kinms首页"
 	})
 })

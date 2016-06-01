@@ -16,23 +16,32 @@ router.get('/login', function(req, res) {
 })
 
 router.post('/login', function(req, res) {
-
 	if( req.body.username && req.body.password ){
 
 		var _username = req.body.username;
 		var _password = req.body.password;
-		console.log(_username, _password)
 		
-
-		User.build({
-			'username': 'admin',
-			'password': '123456'
-		}).save()
-
-		// res.redirect('/index');
-		//next();
-		// var user = User.find({})
-		// console.log(user)
+		var _user = User.findOne({
+			where: {
+				'username': _username
+			}
+		}).then(function(project){
+			if( !project ){
+				console.log('没有该用户')
+				res.redirect('/admin/login')
+				return;
+			} else {
+				if( _password == project.dataValues.password ){
+					res.redirect('/admin/index');
+					return;
+				} else {
+					res.redirect('/admin/login')
+					return;
+				}
+			}
+		})
+	} else {
+		res.redirect('/admin/login')
 	}
 })
 
