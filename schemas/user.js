@@ -1,5 +1,3 @@
-// var sequelize = require('./sequelize');
-
 var Sequelize = require('sequelize')
 
 var sequelize = new Sequelize('linyimobileweb', 'root', 'root', {
@@ -14,21 +12,26 @@ var sequelize = new Sequelize('linyimobileweb', 'root', 'root', {
 });
 
 var User = sequelize.define('user', {
-	id: {
-		primaryKey: true, // 主键
-		type: Sequelize.INTEGER, // 类型
-		autoIncrement : true, // 自增
-		unique: true, // 值唯一
-		field: 'first_name' // Will result in an attribute that is firstName when user facing but first_name in the database
+	'id': {
+		'primaryKey': true, // 主键
+		'allowNull': false, // 是否允许为NULL
+		'type': Sequelize.INTEGER, // 类型
+		'autoIncrement' : true, // 自增
+		'unique': true, // 值唯一
+		'field': 'first_name' // Will result in an attribute that is firstName when user facing but first_name in the database
 	},
-	password: {
-	type: Sequelize.STRING
+	'username': {
+		'type': Sequelize.STRING,
+		'allownull': false
+	},
+	'password': {
+		'type': Sequelize.STRING,
+		'allowNull': false
 	}
+
 }, {
-  	freezeTableName: true // Model tableName will be the same as the model name
+  	'freezeTableName': true, // Model tableName will be the same as the model name
+  	'tableName': 'user'
 });
-
-
-
 
 module.exports = User
