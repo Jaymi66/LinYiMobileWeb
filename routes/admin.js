@@ -51,5 +51,11 @@ router.get('/index', function(req, res){
 	})
 })
 
+router.get('/addZone', function(req, res) {
+	res.render('admin/addZone', {
+		title: 'Kinms后台管理'
+	})
+})
+
 
 module.exports = router
