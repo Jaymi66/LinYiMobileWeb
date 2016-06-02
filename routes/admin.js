@@ -1,7 +1,13 @@
 var express = require('express')
 var router = express.Router()
+
+var multer = require('multer');
+var upload = multer({dest: 'uploads/'});
+
 var User = require('../schemas/user')
 var Zone = require('../schemas/zone')
+
+
 
 // admin page
 router.get('/', function(req, res){

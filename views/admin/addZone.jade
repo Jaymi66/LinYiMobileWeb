@@ -22,7 +22,10 @@ html
 						.form-group
 							label.col-sm-2.control-label(for="") 预览图
 							.col-sm-10
-								input.form-control.w2(type="file", name="littleimg")
+								input#upload-file.form-control.w2.pull-left(type="file")
+								| &nbsp;
+								button.btn.btn-primary(type="button", onclick="uploadFile(this)") 上传
+								input#upload-file-path(type="hidden", name="littleimg")
 						.form-group
 							label.col-sm-2.control-label(for="") 详情大图
 							.col-sm-10
@@ -59,3 +62,26 @@ html
 							.col-sm-offset-2.col-sm-10
 								input.btn.btn-primary(type="submit", value="保存")
 	include ./inc/baseJs
+	script.
+		function uploadFile(dom){
+			var path = $(dom).siblings('#upload-file').val();
+			if(!path){
+				alert('请选择文件')
+				return false;
+			}
+			$.ajax({
+				type: 'post',
+				url: '/upload',
+				dataType: 'json',
+				cache: false,
+				data: {
+					'filePath': path
+				},
+				success: function(data){
+					alert('成功上传')
+				},
+				error: function(err){
+					alert('error')
+				}
+			})
+		}
