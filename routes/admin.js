@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var User = require('../schemas/user')
+var Zone = require('../schemas/zone')
 
 // admin page
 router.get('/', function(req, res){
@@ -52,9 +53,16 @@ router.get('/index', function(req, res){
 })
 
 router.get('/listZone', function(req, res){
-	res.render('admin/listZone', {
-		title: 'Kinms后台管理'
-	})
+
+	Zone.findAll({}).then(function(project){
+		// console.log(project)
+		res.render('admin/listZone', {
+			title: 'Kinms后台管理',
+			zones: project
+		})
+		return;
+	});
+	
 })
 
 router.get('/addZone', function(req, res) {

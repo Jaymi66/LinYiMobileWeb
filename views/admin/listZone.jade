@@ -7,18 +7,28 @@ html
 		.page-wrapper
 			.row
 				.col-lg-12
-					h1.page-header 景点列表
+					h1.page-header 景点管理
+						a.btn.btn-primary.pull-right(href="/admin/addZone") 添加景点
 			.row
 				.col-lg-12
-					table.table-bordered.table-hover
+					table.table.table-bordered.table-hover
 						thead
 							tr
-								th id
-								th title
-								th type
-								th opentime
+								th ID
+								th 标题
+								th 类型
+								th 开放时间
+								th 操作
 						tbody
-							tr
-								td
+							each zone in zones
+								tr
+									td #{zone.id}
+									td #{zone.title}
+									td #{zone.type}
+									td #{zone.opentime}
+									td
+										a.btn.btn-primary.btn-sm(href="admin/modifyZone/#{zone.id}") 修改
+										&nbsp;
+										a.btn.btn-danger.btn-sm(href="admin/removeZone/#{zone.id}") 删除
 					
 	include ./inc/baseJs
