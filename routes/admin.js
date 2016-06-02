@@ -51,10 +51,19 @@ router.get('/index', function(req, res){
 	})
 })
 
+router.get('/listZone', function(req, res){
+	res.render('admin/listZone', {
+		title: 'Kinms后台管理'
+	})
+})
+
 router.get('/addZone', function(req, res) {
 	res.render('admin/addZone', {
 		title: 'Kinms后台管理'
 	})
+})
+router.post('/addZone', function(req, res){
+	
 })
 
 
