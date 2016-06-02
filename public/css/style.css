@@ -93,9 +93,14 @@ input[type="number"] {
 	margin-right: auto;
 	max-width: 640px;
 	min-width: 320px;
-	min-height: 510px;
-	height: 100%;
-	overflow-x: hidden;
+}
+.btn_gg{
+	width: 37px;
+    height: 31px;
+    top: 35px;
+    right: 35px;
+    background-image: url(../images/gongneng.png);
+    background-size: 100%;
 }
 .headerOne{
 	height:500px ;
@@ -109,7 +114,35 @@ input[type="number"] {
 .ad_run_con{
 	color: #fff;
 	font-weight: bolder;
-	font-size: 15px;
+	font-size: 13px;
+}
+ .img_bottom{
+	font-size: 16px;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    color: white;
+    line-height: 1.89;
+    padding: 0 10px 0 30px;
+}
+.img_bottom font{
+	float: left;
+}
+.img_bottom_con{
+    float: right;
+}
+.img_bottom_con img{
+	width: 15px;
+	margin:0 5px;
+}
+.img_bottom_con img:nth-of-type(2){
+	margin-left:20px;
+}
+.img_bottom_con a{
+	color: white;
+	font-size: 12px;
 }
 .scenic-lineOne{
 	text-align: center;
