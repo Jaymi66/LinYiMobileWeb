@@ -264,3 +264,16 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+.form-horizontal .w1 {
+    width: 20%;
+}
+.form-horizontal .w2 {
+    width: 40%;
+}
+.form-horizontal .w3 {
+    width: 60%;
+}
+.form-horizontal .w4 {
+    width: 80%;
+}
