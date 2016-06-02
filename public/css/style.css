@@ -21,7 +21,9 @@ img {
 	vertical-align: middle
 }
 body {
-	font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+	/*font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;*/
+	font-family:  Microsoft YaHei;
+
 	/*color: #666;*/
 	-webkit-user-select: none;
 	-webkit-text-size-adjust: none
@@ -135,8 +137,9 @@ input[type="number"] {
 	background: white;
 }
 .scenic_info p {
+	font-size: 16px;
 	line-height: 3;
-	font-weight: bolder;
+	/*font-weight: bolder;*/
 	position: relative;
 	padding-right: 50px;
 	padding-left: 80px;
@@ -151,6 +154,8 @@ input[type="number"] {
 	color: #666;
 }
 .scenic_info p .detail_icon {
+	font-family: 黑体;
+	color: #666;
 	font-weight:bolder;
 	position: absolute;
 	right: 0;
@@ -158,7 +163,6 @@ input[type="number"] {
 }
 .scenic_info p img{
 	width:14px;
-	height:16px;
 }
 .scenic-line{
 	height: 10px;
@@ -166,7 +170,7 @@ input[type="number"] {
 	background-size: 100% 100%;
 }
 .scenic_rote p{
-	font-weight: bolder;
+	font-size: 16px;
 	line-height: 2;
 }
 .rote_title{
@@ -180,7 +184,7 @@ input[type="number"] {
 	padding: 15px 0;
 }
 .review_title{
-	font-weight: bolder;
+	font-size: 16px;
 	margin-bottom: 10px;
 	color: #666;
 }
@@ -191,11 +195,11 @@ input[type="number"] {
 	color: #FF8C23;
 }
 .review_imgW{
-	width: 35px;
+	width: 40px;
 	margin-right: 5px;
 }
 .review_imgP{
-	width: 40px;
+	width: 47px;
 	margin-right: 5px;
 }
 .review_imgXX{
@@ -223,7 +227,7 @@ input[type="number"] {
 	font-size: 14px;
 }
 .review_con{
-	font-weight: bolder;
+	font-size: 16px;
 	padding: 10px 0;
 	line-height: 1.7;
 }
@@ -233,7 +237,7 @@ input[type="number"] {
 }
 .review_more a{
 	border:solid 1px #2B94FC;
-	padding:15px 25px;
+	padding:10px 20px;
 	color: #2B94FC;
 	font-size: 16px;
 	border-radius: 5px;
