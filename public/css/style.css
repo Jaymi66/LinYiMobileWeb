@@ -164,6 +164,40 @@ input[type="number"] {
 	width: 100%;
 	height: 100%;
 }
+.img_video{
+	top: 50px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+	background:url("../images/video.png");
+	background-size:100%;
+}
+.scenicTitle{
+    left: 18px;
+    bottom: 20px;
+    font-weight: bolder;
+}
+.scenicTitle span{
+	display: block;
+}
+.scenicTitle span:nth-of-type(1){
+	font-size: 20px;
+}
+.scenicTitle span:nth-of-type(2){
+	font-size: 16px;
+}
+#detail_info_show{
+	width: 100%;
+    height: 100px;
+    overflow-y: scroll;
+    bottom: 0px; 
+    background: url(../images/bg-2.png) repeat;
+} 
+.scenicTXX{
+	width: 93px;
+    bottom: 37px;
+    right: 30px;
+}
 .scenic{
 	padding: 20px 10px;
 	text-align: left;
@@ -251,6 +285,7 @@ input[type="number"] {
 	text-align: center;
 }
 .review_personName{
+	display: block;
 	font-size: 12px;
 	color: #4CB1D3;
 }
@@ -263,9 +298,10 @@ input[type="number"] {
 	font-size: 16px;
 	padding: 10px 0;
 	line-height: 1.7;
+	clear: both;
 }
 .review_more{
-	padding: 10px 0;
+	    padding: 10px 0 29px 0;
 	text-align: center;
 }
 .review_more a{
