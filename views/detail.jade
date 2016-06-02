@@ -6,7 +6,7 @@ html
 		.mobile-container
 			.header.pr
 				img(src="/images/top2.png")
-				btn.img_video.pa
+				btn.img_video.pa#img_video
 				p.pa.scenicTitle
 					span 地下大峡谷
 					span dixiadaxiagu
@@ -74,6 +74,13 @@ html
 				a(href="#") 更多>>
 		script(src="/libs/jquery/dist/jquery.min.js")
 		script.
+				$(function(){
+				var video='<audio autoplay><source src="/images/Michael Learns To Rock - Take Me To Your Heart [m.mp3" type="audio/mpeg"></audio>'
 				$("#detail_info").click(function(){
 					$("#detail_info_show").toggle();
+				})
+				$("#img_video").click(function(){
+						$("#img_video").html(video);
+
+				})
 				})
