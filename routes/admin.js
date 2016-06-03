@@ -2,7 +2,9 @@ var express = require('express')
 var router = express.Router()
 
 var multer = require('multer');
-var upload = multer({dest: 'uploads/'});
+var upload = multer({dest: 'public/uploads/'});
+var fs = require('fs');
+var path = require('path');
 
 var User = require('../schemas/user')
 var Zone = require('../schemas/zone')
@@ -77,13 +79,59 @@ router.get('/addZone', function(req, res) {
 	})
 })
 
-router.post('/addZone', upload.array(), function(req, res, next){
 
-	console.log('上传文件')
-	console.log(req.body.littleimg)
-	console.log(req.file)
+var uploadZoneFile = upload.fields([{
+										name: 'uploadLittleimg',
+										maxCount: 1
+									}, {
+										name: 'uploadImg',
+										maxCount: 1
+									}, {
+										name: 'uploadVoice',
+										maxCount: 1
+									}]);
+
+router.post('/addZone', uploadZoneFile, function(req, res, next){
+	var _uploadLittleimg = req.files.uploadLittleimg;
+	var _uploadImg = req.files.uploadImg;
+	var _uploadVoice = req.files.uploadVoice;
+	if(_uploadLittleimg) req.body.littleimg = _uploadLittleimg[0].destination + _uploadLittleimg[0].filename;
+	if(_uploadImg) req.body.img = _uploadImg[0].destination + _uploadImg[0].filename;
+	if(_uploadVoice) req.body.voice = _uploadVoice[0].destination + _uploadVoice[0].filename;
 	next();
+}, function(req, res){
 	
+	var project = Zone.build({
+		littleimg: req.body.littleimg,
+		title: req.body.title,
+		pinyintitle: req.body.pinyintitle,
+		img: req.body.img,
+		voice: req.body.voice,
+		intro: req.body.intro,
+		type: req.body.type,
+		opentime: req.body.opentime,
+		address: req.body.address,
+		phone: req.body.phone,
+		route: req.body.route
+	})
+
+	project.save().then(function(project){
+		
+		if(project){
+			console.log('插入成功')
+			res.redirect('admin/addZone', {
+				title: 'Kinms后台管理'
+			})
+			return;
+		} else {
+			console.log('插入失败')
+			return;
+		}
+		
+	})
+
+	
+
 })
 
 

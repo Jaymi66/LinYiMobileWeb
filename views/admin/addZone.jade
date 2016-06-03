@@ -10,7 +10,7 @@ html
 					h1.page-header 添加景点
 			.row
 				.col-lg-12
-					form.form-horizontal(action="/admin/addZone", method="post")
+					form.form-horizontal(action="/admin/addZone", method="post", enctype="multipart/form-data")
 						.form-group
 							label.col-sm-2.control-label(for="") 标题
 							.col-sm-10
@@ -22,18 +22,15 @@ html
 						.form-group
 							label.col-sm-2.control-label(for="") 预览图
 							.col-sm-10
-								input#upload-file.form-control.w2.pull-left(type="file", name="littleimg")
-								//- | &nbsp;
-								//- button.btn.btn-primary(type="button", onclick="uploadFile(this)") 上传
-								//- input#upload-file-path(type="hidden", name="littleimg")
+								input.form-control.w2.pull-left(type="file", name="uploadLittleimg")
 						.form-group
 							label.col-sm-2.control-label(for="") 详情大图
 							.col-sm-10
-								input.form-control.w2(type="file", name="img")
+								input.form-control.w2(type="file", name="uploadImg")
 						.form-group
 							label.col-sm-2.control-label(for="") 语音
 							.col-sm-10
-								input.form-control.w2(type="file", name="voice")
+								input.form-control.w2(type="file", name="uploadVoice")
 						.form-group
 							label.col-sm-2.control-label(for="") 简介
 							.col-sm-10
@@ -45,7 +42,7 @@ html
 						.form-group
 							label.col-sm-2.control-label(for="") 开放时间
 							.col-sm-10
-								input.form-control.w2(type="text", name="opentime" placeholder="类型")
+								input.form-control.w2(type="text", name="opentime" placeholder="开放时间")
 						.form-group
 							label.col-sm-2.control-label(for="") 地址
 							.col-sm-10
@@ -57,31 +54,8 @@ html
 						.form-group
 							label.col-sm-2.control-label(for="") 游览路线
 							.col-sm-10
-								textarea.form-control.w3(rows="5", name="phone" placeholder="游览路线")
+								textarea.form-control.w3(rows="5", name="route" placeholder="游览路线")
 						.form-group
 							.col-sm-offset-2.col-sm-10
 								input.btn.btn-primary(type="submit", value="保存")
-	include ./inc/baseJs
-	script.
-		//- function uploadFile(dom){
-		//- 	var path = $(dom).siblings('#upload-file').val();
-		//- 	if(!path){
-		//- 		alert('请选择文件')
-		//- 		return false;
-		//- 	}
-		//- 	$.ajax({
-		//- 		type: 'post',
-		//- 		url: '/upload',
-		//- 		dataType: 'json',
-		//- 		cache: false,
-		//- 		data: {
-		//- 			'filePath': path
-		//- 		},
-		//- 		success: function(data){
-		//- 			alert('成功上传')
-		//- 		},
-		//- 		error: function(err){
-		//- 			alert('error')
-		//- 		}
-		//- 	})
-		//- }
+	include ./inc/baseJs		
