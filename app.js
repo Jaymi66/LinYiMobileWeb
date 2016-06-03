@@ -6,7 +6,7 @@ var port = process.env.PORT || 3000;
 var app = express();
 var bodyParser = require('body-parser');
 var multer  = require('multer')
-var upload = multer({ dest: 'uploads/' })
+var upload = multer({ dest: 'public/uploads/' })
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
@@ -22,19 +22,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', routes);
 app.use('/admin', admin);
-app.post('/upload', function(req, res, next) {
+
+// 上传文件
+app.post('/upload', upload.array(), function(req, res, next) {
 
 
-	upload(req, res, function (err) {
-	    if (err) {
-	    	return;
-	    }
-	})
-
-	//upload()
 	console.log('上传文件')
 	console.log(req.body.filePath)
 	console.log(req.file)
+	next();
 
 })
 

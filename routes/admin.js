@@ -76,7 +76,13 @@ router.get('/addZone', function(req, res) {
 		title: 'Kinms后台管理'
 	})
 })
-router.post('/addZone', function(req, res){
+
+router.post('/addZone', upload.array(), function(req, res, next){
+
+	console.log('上传文件')
+	console.log(req.body.littleimg)
+	console.log(req.file)
+	next();
 	
 })
 

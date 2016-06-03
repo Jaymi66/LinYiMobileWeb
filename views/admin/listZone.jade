@@ -28,7 +28,7 @@ html
 									td #{zone.opentime}
 									td(width="120")
 										a.btn.btn-primary.btn-sm(href="admin/modifyZone/#{zone.id}") 修改
-										&nbsp;
+										| &nbsp;
 										a.btn.btn-danger.btn-sm(href="admin/removeZone/#{zone.id}") 删除
 					
 	include ./inc/baseJs
