@@ -11,8 +11,6 @@ html
 					span 地下大峡谷
 					span dixiadaxiagu
 				img(src="/images/xxQ.png").pa.scenicTXX
-				div.pa.hide#detail_info_show &nbsp;&nbsp;&nbsp;&nbsp;山东地下大峡谷位于山东省临沂市沂水县院东头乡即沂水县城西南8公里龙岗山下，是一座风貌奇特的溶洞王国，沂蒙地下奇观核心景区。规划占地32平方公里。该景区是集休闲、游憩、娱乐、度假、溶洞漂流为一体的旅游项目。洞体长度6100米，目前开发3100米，是江北第一长洞，中国特大型著名溶洞之一。
-
 			.scenic.scenic_info
 				p.pr
 					span.detail_title 简介
@@ -21,11 +19,11 @@ html
 				p.pr
 					span.detail_title 类型
 					span.detail_info 峡谷
-					span.detail_icon >
+					span.detail_icon 
 				p.pr
 					span.detail_title 开放时间
 					span.detail_info 07:20-17:30
-					span.detail_icon >
+					span.detail_icon 
 				p.pr
 					span.detail_title 地址
 					span.detail_info 临沂市沂水县城西南8公里
@@ -34,7 +32,7 @@ html
 				p.pr
 					span.detail_title 电话
 					span.detail_info 0539-2559999
-					span.detail_icon >
+					span.detail_icon 
 			.scenic-line
 			.scenic.scenic_rote
 				p.rote_title 游览路线
@@ -72,16 +70,31 @@ html
 					p.review_con 景色挺好，人挺多的，卖票的窗口没都开开，买票排了一个小时的队，玩了两个半小时，做漂流时免票的儿童没有鞋套不是很周到，我的给了孩子自己的鞋子...
 			.review_more
 				a(href="#") 更多>>
+		script(type="text/html", id="detail_info_show_con")
+			#detail_info_show 龙岗山下山东地下大峡谷位于山东省临沂市沂水县院东头乡即沂水县城西南8公里龙岗山下龙岗山下山东地下大峡谷位于山东省临沂市沂水县院东头乡即沂水县城西南8公里龙岗山下龙岗山下山东地下大峡谷位于山东省临沂市沂水县院东头乡即沂水县城西南8公里龙岗山下龙岗山下山东地下大峡谷位于山东省临沂市沂水县院东头乡即沂水县城西南8公里龙岗山下
 		script(src="/libs/jquery/dist/jquery.min.js")
+		script(src="/libs/layer/layer.js")
 		script.
 				$(function(){
-				//加入音频文件
-				var video='<audio autoplay><source src="/images/Michael Learns To Rock - Take Me To Your Heart [m.mp3" type="audio/mpeg"></audio>'
-				$("#detail_info").click(function(){
-					$("#detail_info_show").toggle();
-				})
-				$("#img_video").click(function(){
+					//详细信息展示
+					$("#detail_info").click(function(){
+						layer.open({
+								type: 0, //page层
+								area: ['80%','100%'],
+								title: '详细介绍',
+								closeBtn: false,
+								btn: ['X'],
+								shade: 0.65,//遮罩透明度
+								move: false,
+								scrollbar: false,
+								shift: 0, //0-6的动画形式，-1不开启
+								content: $("#detail_info_show_con").html(),
+						});
+					})
+					//加入音频
+					var video='<audio autoplay><source src="/images/Michael Learns To Rock - Take Me To Your Heart [m.mp3" type="audio/mpeg"></audio>'
+					$("#img_video").click(function(){
 						$("#img_video").html(video);
+					})
 
-				})
 				})
