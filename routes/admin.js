@@ -100,7 +100,7 @@ router.post('/addZone', uploadZoneFile, function(req, res, next){
 	if(_uploadVoice) req.body.voice = _uploadVoice[0].destination + _uploadVoice[0].filename;
 	next();
 }, function(req, res){
-	
+
 	var project = Zone.build({
 		littleimg: req.body.littleimg,
 		title: req.body.title,
@@ -118,10 +118,8 @@ router.post('/addZone', uploadZoneFile, function(req, res, next){
 	project.save().then(function(project){
 		
 		if(project){
-			console.log('插入成功')
-			res.redirect('admin/addZone', {
-				title: 'Kinms后台管理'
-			})
+			console.log('插入成功');
+			res.redirect('/admin/addZone');
 			return;
 		} else {
 			console.log('插入失败')
@@ -134,5 +132,20 @@ router.post('/addZone', uploadZoneFile, function(req, res, next){
 
 })
 
+
+router.get('/removeZone/:id', function(req, res){
+	console.log('执行删除')
+	Zone.findOne({id: req.params.id}).then(function(task){
+		return task.destroy();
+	}).then(function(project){
+		// console.log(project)
+		if(project){
+			res.redirect('/admin/listZone')
+		}
+		return;
+	})
+	
+
+})
 
 module.exports = router
