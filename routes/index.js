@@ -3,6 +3,7 @@ var router = express.Router();
 
 var Zone = require('../schemas/zone')
 var Assessment = require('../schemas/assessment');
+var moment = require('moment')
 
 // home page
 router.get('/', function(req, res){
@@ -27,11 +28,9 @@ router.get('/index', function(req, res){
 		return;
 	});
 
-	// res.render('index', {
-	// 	title: "首页"
-	// })
 })
 
+// 详情页面
 router.get('/detail/:id', function(req, res){
 
 	var _id = req.params.id
@@ -44,12 +43,11 @@ router.get('/detail/:id', function(req, res){
 			zoneid: _id
 		}}).then(function(project){
 
-			console.log(project)
-
 			res.render('detail', {
 				title: "Kinms首页",
 				zone: _zoneProject,
-				assessments: project
+				assessments: project,
+				moment: moment
 			})
 		})
 

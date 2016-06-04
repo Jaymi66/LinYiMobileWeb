@@ -44,7 +44,7 @@ html
 					img.review_imgW(src="/images/Write.png")
 					| 游客点评
 					font (
-						a 1122
+						a #{assessments.length}
 						| 条评论)
 					a(href="/addAssessment/#{zone.id}") 评论
 				each assessment in assessments
@@ -57,7 +57,7 @@ html
 								img.review_imgXX(src="/images/xxQ.png")
 							p.review_time
 								img.review_imgT(src="/images/colock.png")
-								| #{assessment.createdAt}
+								| #{moment(assessment.createdAt).format('YYYY年MM月DD日')}
 						p.review_con #{assessment.content}
 
 			.review_more
