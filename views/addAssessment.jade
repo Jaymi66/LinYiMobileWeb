@@ -1,0 +1,26 @@
+doctype
+html
+	head
+		include ./includes/head
+	body
+		.mobile-container
+			form(action="/addAssessment", method="post")
+				input(type="hidden",name="zoneid", value="#{zoneid}")
+				.form-group
+					.group-inline
+						input(type="radio", name="star", value="1")
+						| 1星
+					.group-inline
+						input(type="radio", name="star", value="2")
+						| 2星
+					.group-inline
+						input(type="radio", name="star", value="3")
+						| 3星
+					.group-inline
+						input(type="radio", name="star", value="4")
+						| 4星
+					.group-inline
+						input(type="radio", name="star", value="5")
+						| 5星
+				textarea(width="100%", name="content")
+				button(type="submit") 提交

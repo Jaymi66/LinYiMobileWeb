@@ -95,9 +95,9 @@ router.post('/addZone', uploadZoneFile, function(req, res, next){
 	var _uploadLittleimg = req.files.uploadLittleimg;
 	var _uploadImg = req.files.uploadImg;
 	var _uploadVoice = req.files.uploadVoice;
-	if(_uploadLittleimg) req.body.littleimg = _uploadLittleimg[0].destination + _uploadLittleimg[0].filename;
-	if(_uploadImg) req.body.img = _uploadImg[0].destination + _uploadImg[0].filename;
-	if(_uploadVoice) req.body.voice = _uploadVoice[0].destination + _uploadVoice[0].filename;
+	if(_uploadLittleimg) req.body.littleimg = "/uploads/" + _uploadLittleimg[0].filename;
+	if(_uploadImg) req.body.img = "/uploads/" + _uploadImg[0].filename;
+	if(_uploadVoice) req.body.voice = "/uploads/" + _uploadVoice[0].filename;
 	next();
 }, function(req, res){
 

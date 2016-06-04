@@ -12,7 +12,8 @@ html
 					p “亲情沂蒙”新媒体采风活动之“红色沂蒙”“绿色沂蒙”
 			each zone in zones
 				div.pr
-					img(src="../#{zone.littleimg}")
+					a(href="/detail/#{zone.id}")
+						img(src="#{zone.littleimg}")
 					div.pa.img_bottom
 						font #{zone.title}
 						div.img_bottom_con
@@ -20,6 +21,10 @@ html
 							a(href="#") 36754
 							img(src="/images/comment.png")
 							a(href="#") 754
+
+
+
+
 			//- div.pr
 			//- 	img(src="/images/guanbiwenquan.png")
 			//- 	div.pa.img_bottom

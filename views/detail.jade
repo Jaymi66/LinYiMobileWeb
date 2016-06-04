@@ -8,35 +8,35 @@ html
 				img(src="/images/top2.png")
 				btn.img_video.pa#img_video
 				p.pa.scenicTitle
-					span 地下大峡谷
-					span dixiadaxiagu
+					span #{zone.title}
+					span #{zone.pinyintitle}
 				img(src="/images/xxQ.png").pa.scenicTXX
 			.scenic.scenic_info
 				p.pr
 					span.detail_title 简介
-					span.detail_info#detail_info 山东地下大峡谷景区位于...
+					span.detail_info#detail_info #{zone.intro}
 					span.detail_icon >
 				p.pr
 					span.detail_title 类型
-					span.detail_info 峡谷
-					span.detail_icon 
+					span.detail_info #{zone.type}
+					span.detail_icon >
 				p.pr
 					span.detail_title 开放时间
-					span.detail_info 07:20-17:30
-					span.detail_icon 
+					span.detail_info #{zone.opentime}
+					span.detail_icon >
 				p.pr
 					span.detail_title 地址
-					span.detail_info 临沂市沂水县城西南8公里
+					span.detail_info #{zone.address}
 					span.detail_icon
-						<img src="/images/position3.png"> 
+						<img src="/images/position3.png">
 				p.pr
 					span.detail_title 电话
-					span.detail_info 0539-2559999
+					span.detail_info #{zone.phone}
 					span.detail_icon 
 			.scenic-line
 			.scenic.scenic_rote
 				p.rote_title 游览路线
-				p 龙道--九龙宫--地下暗河--万年灵芝--九龙瀑--通海宫--冰瀑 
+				p #{zone.route}
 					a.rote_a(href="#")
 			.scenic-line
 			.scenic
@@ -46,32 +46,27 @@ html
 					font (
 						a 1122
 						| 条评论)
-				.review
-					div
-						p.review_person
-							img.review_imgP(src="/images/touxiang.png")
-							span.review_personName 游客1
-						p.review_xx
-							img.review_imgXX(src="/images/xxQ.png")
-						p.review_time
-							img.review_imgT(src="/images/colock.png")
-							| 2016年05月12日
-					p.review_con 景色挺好，人挺多的，卖票的窗口没都开开，买票排了一个小时的队，玩了两个半小时，做漂流时免票的儿童没有鞋套不是很周到，我的给了孩子自己的鞋子...
-				.review
-					div
-						p.review_person
-							img.review_imgP(src="/images/touxiang.png")
-							span.review_personName 游客1
-						p.review_xx
-							img.review_imgXX(src="/images/xxQ.png")
-						p.review_time
-							img.review_imgT(src="/images/colock.png")
-							| 2016年05月12日
-					p.review_con 景色挺好，人挺多的，卖票的窗口没都开开，买票排了一个小时的队，玩了两个半小时，做漂流时免票的儿童没有鞋套不是很周到，我的给了孩子自己的鞋子...
+					a(href="/addAssessment/#{zone.id}") 评论
+				each assessment in assessments
+					.review
+						div
+							p.review_person
+								img.review_imgP(src="/images/touxiang.png")
+								span.review_personName 游客#{assessment.id}
+							p.review_xx
+								img.review_imgXX(src="/images/xxQ.png")
+							p.review_time
+								img.review_imgT(src="/images/colock.png")
+								| #{assessment.createdAt}
+						p.review_con #{assessment.content}
+
 			.review_more
 				a(href="#") 更多>>
 		script(type="text/html", id="detail_info_show_con")
-			#detail_info_show 龙岗山下山东地下大峡谷位于山东省临沂市沂水县院东头乡即沂水县城西南8公里龙岗山下龙岗山下山东地下大峡谷位于山东省临沂市沂水县院东头乡即沂水县城西南8公里龙岗山下龙岗山下山东地下大峡谷位于山东省临沂市沂水县院东头乡即沂水县城西南8公里龙岗山下龙岗山下山东地下大峡谷位于山东省临沂市沂水县院东头乡即沂水县城西南8公里龙岗山下
+			#detail_info_show #{zone.intro}
+		script(type="text/html", id="video")
+			audio
+				source(src="#{zone.voice}", type="audio/mpeg")
 		script(src="/libs/jquery/dist/jquery.min.js")
 		script(src="/libs/layer/layer.js")
 		script.
@@ -91,10 +86,10 @@ html
 								content: $("#detail_info_show_con").html(),
 						});
 					})
+
 					//加入音频
-					var video='<audio autoplay><source src="/images/Michael Learns To Rock - Take Me To Your Heart [m.mp3" type="audio/mpeg"></audio>'
 					$("#img_video").click(function(){
-						$("#img_video").html(video);
+						$("#img_video").html($('#video').html());
 					})
 
 				})
