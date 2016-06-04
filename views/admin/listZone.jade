@@ -27,8 +27,15 @@ html
 									td #{zone.type}
 									td #{zone.opentime}
 									td(width="120")
-										a.btn.btn-primary.btn-sm(href="/admin/modifyZone/#{zone.id}") 修改
+										a.btn.btn-primary.btn-sm(href="/admin/updateZone/#{zone.id}") 修改
 										| &nbsp;
-										a.btn.btn-danger.btn-sm(href="/admin/removeZone/#{zone.id}") 删除
+										button.btn.btn-danger.btn-sm(onclick="removeZone(#{zone.id})") 删除
 					
 	include ./inc/baseJs
+	script(type="text/javascript").
+		function removeZone(id){
+			var flag = confirm('确认删除吗？');
+			if(flag){
+				window.location.href="removeZone/"+id;
+			}
+		}

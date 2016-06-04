@@ -138,7 +138,25 @@ router.post('/addZone', uploadZoneFile, function(req, res, next){
 
 })
 
+// 修改
+router.get('/updateZone/:id', function(req, res){
+	
+	var _id = req.params.id;
 
+	Zone.findById(_id).then(function(project){
+		if(project){
+
+			res.render('admin/addZone', {
+				title: 'Kinms后台管理',
+				zone: project
+			})
+		}
+	})
+
+	
+})
+
+// 删除
 router.get('/removeZone/:id', function(req, res){
 	console.log('执行删除')
 	Zone.findOne({id: req.params.id}).then(function(task){
