@@ -92,13 +92,19 @@ var uploadZoneFile = upload.fields([{
 									}]);
 
 router.post('/addZone', uploadZoneFile, function(req, res, next){
+
+
+	console.log(req.files)
+
 	var _uploadLittleimg = req.files.uploadLittleimg;
 	var _uploadImg = req.files.uploadImg;
 	var _uploadVoice = req.files.uploadVoice;
+
 	if(_uploadLittleimg) req.body.littleimg = "/uploads/" + _uploadLittleimg[0].filename;
 	if(_uploadImg) req.body.img = "/uploads/" + _uploadImg[0].filename;
 	if(_uploadVoice) req.body.voice = "/uploads/" + _uploadVoice[0].filename;
 	next();
+
 }, function(req, res){
 
 	var project = Zone.build({
