@@ -28,7 +28,7 @@ html
 					span.detail_title 地址
 					span.detail_info #{zone.address}
 					span.detail_icon
-						<img src="/images/position3.png">
+						img(src="/images/position3.png")
 				p.pr
 					span.detail_title 电话
 					span.detail_info #{zone.phone}
@@ -62,19 +62,20 @@ html
 
 			.review_more#review_more
 				input#review_more_con(placeholder="说两句，评一下")
+
+
+
 		script#review_more_content(type='text/html')
-					input.input_con#review_input_con(type="text" placeholder="请输入评论内容...")
-					p.review_p_con
-						span.strat_PF
-							评分
-						span.strat_HL
-								span(index="1").star.starH#star0
-								span(index="2").star.starH#star1
-								span(index="3").star.starH#star2
-								span(index="4").star.starH#star3
-								span(index="5").star.starH#star4
-					button.input_up
-						提交
+			input.input_con#review_input_con(type="text", placeholder="请输入评论内容...")
+			p.review_p_con
+				span.strat_PF 评分
+				span.strat_HL
+					span(index="1").star.starH#star0
+					span(index="2").star.starH#star1
+					span(index="3").star.starH#star2
+					span(index="4").star.starH#star3
+					span(index="5").star.starH#star4
+			button.input_up 提交
 
 						
 		script(type="text/html", id="detail_info_show_con")
