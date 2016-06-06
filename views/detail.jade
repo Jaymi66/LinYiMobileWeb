@@ -60,15 +60,33 @@ html
 								| #{moment(assessment.createdAt).format('YYYY年MM月DD日')}
 						p.review_con #{assessment.content}
 
-			.review_more
-				a(href="#") 更多>>
+			.review_more#review_more
+				//- input#review_more_con(placeholder="说两句，评一下")
+			//- #review_more_content
+			//- 	p.review_more_close
+					
+			//- 	p.review_more_contentmain
+                    
+			//- 	p.review_more_bottom
+			//- 		span
+			//- 			评分
+			#review_more_content
+					input.input_con#review_input_con(type="text" placeholder="请输入评论内容...")
+					p.review_p_con
+						span
+							评分
+						img(src="/images/xxQ.png").pingfenXX
+					button.input_up
+						提交
+
+						
 		script(type="text/html", id="detail_info_show_con")
 			#detail_info_show #{zone.intro}
 		script(type="text/html", id="video")
 			audio
 				source(src="#{zone.voice}", type="audio/mpeg")
 		script(src="/libs/jquery/dist/jquery.min.js")
-		script(src="/libs/layer/layer.js")
+		script(src="/js/layer/layer.js")
 		script.
 				$(function(){
 					//详细信息展示
@@ -85,11 +103,28 @@ html
 								shift: 0, //0-6的动画形式，-1不开启
 								content: $("#detail_info_show_con").html(),
 						});
-					})
-
+					});
+					//- //输入框根据输入内容的各多少调节大小
+					//- function resizeInput() {
+					//- 	$(this).attr('size', $(this).val().length);
+					//- }
+					//- $("#review_input_con").keyup(resizeInput).each(resizeInput);
+					$("#review_more").click(function(){
+					    //- $("#review_more").toggle();
+						layer.open({
+								type: 1,
+								area: ['100%'],
+								title: false,
+								closeBtn: 0,
+								shadeClose: true,
+								skin: 'review_more_conSkin',
+								content: $("#review_more_content").html(),
+						});
+						 $("#review_input_con").focus();
+					});
 					//加入音频
 					$("#img_video").click(function(){
 						$("#img_video").html($('#video').html());
-					})
+					});
 
 				})
