@@ -1,7 +1,9 @@
 script(src="/libs/jquery/dist/jquery.min.js")
 script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
 script(src="/libs/metisMenu/dist/metisMenu.js")
+script(src="/js/jqBootstrapValidation.js")
 script.
 	$(function() {
-		$('#side-menu').metisMenu();
+		$('#side-menu').metisMenu()
+		$("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
 	})
