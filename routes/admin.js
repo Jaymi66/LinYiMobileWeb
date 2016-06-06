@@ -2,7 +2,28 @@ var express = require('express')
 var router = express.Router()
 
 var multer = require('multer');
-var upload = multer({dest: 'public/uploads/'});
+
+
+
+var storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, 'public/uploads');
+	},
+	// 添加后缀名
+	filename: function (req, file, cb) {
+
+		var _suffix = file.originalname.split('.');
+		cb(null, file.fieldname + '_' + Date.now() + '.' + _suffix[_suffix.length-1]);
+
+	}
+})
+
+
+var upload = multer({storage: storage});
+
+
+
+
 var fs = require('fs');
 var path = require('path');
 
