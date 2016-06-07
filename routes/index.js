@@ -7,17 +7,38 @@ var Zone = require('../schemas/zone')
 var Assessment = require('../schemas/assessment');
 var moment = require('moment')
 
-
-
 function index(req, res){
+
 	Zone.findAll({}).then(function(project){
-		// console.log(project)
+
+		return project;
+	}).then(function(project){
+
+		for(var i = 0; i<project.length; i++){
+
+			var _thisZone = project[i]
+
+			Assessment.count({where: {zoneid: _thisZone.id}}).then(function(count){
+				
+				_thisZone.dataValues.assessmentInZone = count;
+
+
+				console.log(_thisZone)
+			})
+		}
+
+
+
+		return project;
+	}).then(function(project){
+
+
 		res.render('index', {
 			title: 'Kinms后台管理',
 			zones: project
 		})
-		return;
-	});
+	})
+
 }
 // home page
 router.get('/', index)
@@ -86,10 +107,6 @@ router.post('/addAssessment', function(req, res){
 
 
 function getWeather(address){
-
-
-	console.log(address)
-
 	var _url = 'apis.baidu.com';
 	var _data;
 	var _options = {
@@ -126,7 +143,7 @@ function getWeather(address){
 
 router.get('/getWeather', function(req, res){
 
-	var weather = getWeather('济南');
+	// var weather = getWeather('济南');
 
 	res.send('123');
 

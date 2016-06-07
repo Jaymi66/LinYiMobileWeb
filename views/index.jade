@@ -17,10 +17,8 @@ html
 					div.pa.img_bottom
 						font #{zone.title}
 						div.img_bottom_con
-							img(src="/images/love.png")
-							a(href="#") 36754
 							img(src="/images/comment.png")
-							a(href="#") 754
+							a(href="#") #{zone.assessmentInZone}
 							
 			.scenic-lineOne
 				a(href="#") 查看更多
@@ -33,7 +31,7 @@ html
 				url: '/getWeather',
 				type: 'GET',
 				success: function(data){
-					alert(data)
+					console.log(data)
 				},
 				erro: function(err){
 					console.log(err)
