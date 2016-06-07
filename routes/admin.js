@@ -128,6 +128,8 @@ router.post('/addZone', uploadZoneFile, function(req, res, next){
 
 }, function(req, res){
 
+	console.log(req.body.title)
+
 	var project = Zone.build({
 		littleimg: req.body.littleimg,
 		title: req.body.title,
