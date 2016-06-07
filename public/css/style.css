@@ -169,13 +169,14 @@ input[type="number"] {
 	top: 50px;
     right: 20px;
     width: 36px;
-    height: 34px;
+    height: 36px;
     border-radius: 100%;
     border: solid 2px #F9F9F9;
     overflow: hidden;
+    background: #182D3C;
 } 
 .audio_size{
-	margin:0 -7px;
+	margin:1px -8px;
 }
 .scenicTitle{
 	color: white;
