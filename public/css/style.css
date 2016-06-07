@@ -206,6 +206,7 @@ input[type="number"] {
 	padding: 20px 10px;
 	text-align: left;
 	background: white;
+	padding-bottom: 40px;
 }
 .scenic_info p {
 	font-size: 16px;
@@ -335,9 +336,10 @@ input[type="number"] {
 }
 .input_con{
 	display: block;
-    margin:10px 10px;
+    margin: 10px 10px;
     width: 93%;
-	border: solid 1px #eee;
+    height: 80px;
+    border: solid 1px #eee;
     padding: 5px 5px;
     font-size: 16px;
     border-radius: 5px;

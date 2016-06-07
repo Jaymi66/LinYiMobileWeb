@@ -67,7 +67,7 @@ html
 
 
 		script#review_more_content(type='text/html')
-			input.input_con#review_input_con(type="text", placeholder="请输入评论内容...")
+			textarea.input_con#review_input_con(type="text", placeholder="请输入评论内容...")
 			p.review_p_con
 				span.strat_PF 评分
 				span.strat_HL
@@ -80,7 +80,7 @@ html
 		script(type="text/html", id="detail_info_show_con")
 			#detail_info_show #{zone.intro}
 		script(type="text/html", id="video")
-			audio
+			audio(controls="controls")
 				source(src="#{zone.voice}", type="audio/mpeg")
 		script(src="/libs/jquery/dist/jquery.min.js")
 		script(src="/js/layer/layer.js")
@@ -105,10 +105,12 @@ html
 					$("#review_more").click(function(){
 						layer.open({
 								type: 1,
-								area: ['100%','200px'],
+								area: ['100%'],
 								title: false,
 								closeBtn: 0,
 								shadeClose: true,
+								move: false,
+								scrollbar: false,
 								skin: 'review_more_conSkin',
 								content: $("#review_more_content").html(),
 								success:function(layero,index){
