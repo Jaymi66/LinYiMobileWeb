@@ -102,13 +102,7 @@ html
 								content: $("#detail_info_show_con").html(),
 						});
 					});
-					//- //输入框根据输入内容的各多少调节大小
-					//- function resizeInput() {
-					//- 	$(this).attr('size', $(this).val().length);
-					//- }
-					//- $("#review_input_con").keyup(resizeInput).each(resizeInput);
 					$("#review_more").click(function(){
-					 //- $("#review_more").toggle();
 						layer.open({
 								type: 1,
 								area: ['100%'],
@@ -124,9 +118,14 @@ html
 													$('.strat_HL').children('span').eq(i).removeClass("starH").addClass("starL")
 											}
 
-									});
+										});
+										//- //输入框根据输入内容的各多少调节大小
+										//- function resizeInput() {
+										//- 	$(this).attr('size', $(this).val().length);
+										//- }
+										//- $("#review_input_con").keyup(resizeInput).each(resizeInput);
 								}
-						})
+						});
 					});
 					
 					//加入音频
