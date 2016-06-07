@@ -6,7 +6,10 @@ html
 		.mobile-container
 			.header.pr
 				img(src="#{zone.img}")
-				btn.img_video.pa#img_video
+				//- btn.img_video.pa#img_video
+				div.pa.img_video
+					audio(controls="controls").audio_size
+						<source src="#{zone.voice}", type="audio/mpeg">
 				p.pa.scenicTitle
 					span #{zone.title}
 					span #{zone.pinyintitle}
@@ -82,9 +85,9 @@ html
 
 		script(type="text/html", id="detail_info_show_con")
 			#detail_info_show #{zone.intro}
-		script(type="text/html", id="video")
-			audio(controls="controls")
-				source(src="#{zone.voice}", type="audio/mpeg")
+		//- script(type="text/html", id="video")
+		//- 	audio(controls="controls")
+		//- 		source(src="#{zone.voice}", type="audio/mpeg")
 		script(src="/libs/jquery/dist/jquery.min.js")
 		script(src="/js/layer/layer.js")
 		script.
@@ -133,8 +136,8 @@ html
 						}
 					});
 				});
-				//加入音频
-				$("#img_video").click(function(){
-					$("#img_video").html($('#video').html());
-				});
-			});
+				//- //加入音频
+				//- $("#img_video").click(function(){
+				//- 	$("#img_video").html($('#video').html());
+				//- });
+			})
