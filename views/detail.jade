@@ -103,8 +103,7 @@ html
 							shift: 0, //0-6的动画形式，-1不开启
 							content: $("#detail_info_show_con").html(),
 					});
-
-
+				});
 				//添加评论信息
 				$("#review_more").click(function(){
 					layer.open({
@@ -124,13 +123,10 @@ html
 								$("#layui-layer1 .star").removeClass("starL").addClass("starH");
 								for(var i=0;i<=$(this).index();i++){
 									$('.strat_HL').children('span').eq(i).removeClass("starH").addClass("starL")
-
 									$('#hidden-star').val(i+1)
-									
 								}
 
 							});
-
 						},
 						end : function(){
 							$("#review_more").show();
@@ -141,5 +137,4 @@ html
 				$("#img_video").click(function(){
 					$("#img_video").html($('#video').html());
 				});
-
-			})
+			});
