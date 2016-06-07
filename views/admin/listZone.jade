@@ -35,7 +35,8 @@ html
 	script(type="text/javascript").
 		function removeZone(id){
 			var flag = confirm('确认删除吗？');
+			alert(id)
 			if(flag){
-				window.location.href="removeZone/"+id;
+				window.location.href= ("removeZone/"+id);
 			}
 		}

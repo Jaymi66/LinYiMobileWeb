@@ -24,3 +24,19 @@ html
 							
 			.scenic-lineOne
 				a(href="#") 查看更多
+
+
+	script(src="/libs/jquery/dist/jquery.min.js")
+	script(type="text/javascript").
+		$(function(){
+			$.ajax({
+				url: '/getWeather',
+				type: 'GET',
+				success: function(data){
+					alert(data)
+				},
+				erro: function(err){
+					console.log(err)
+				}
+			})
+		})

@@ -67,7 +67,7 @@ html
 		script#review_more_content(type='text/html')
 			form(action="/addAssessment", method="post")
 				input(type="hidden", name="zoneid", value="#{zone.id}")
-				input#hidden-star(type="hidden", name="star", value="")
+				input#hidden-star(type="hidden", name="star", value="0")
 				input.input_con#review_input_con(type="text", placeholder="请输入评论内容...", name="content", required)
 				p.review_p_con
 					span.strat_PF 评分

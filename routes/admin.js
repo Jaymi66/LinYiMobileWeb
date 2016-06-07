@@ -178,11 +178,9 @@ router.get('/updateZone/:id', function(req, res){
 
 // 删除
 router.get('/removeZone/:id', function(req, res){
-	console.log('执行删除')
-	Zone.findOne({id: req.params.id}).then(function(task){
-		return task.destroy();
-	}).then(function(project){
-		// console.log(project)
+	console.log('执行删除' + req.params.id)
+
+	Zone.destroy({where: {id: req.params.id}}).then(function(project){
 		if(project){
 			res.redirect('/admin/listZone')
 		}
