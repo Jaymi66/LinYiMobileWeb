@@ -312,27 +312,22 @@ input[type="number"] {
     padding: 8px;
     background: #eee;
 }
-.review_more input{
-	width: 100%;
-	border: solid 1px #eee;
-    padding: 2px 20px;
-    font-size: 16px;
-    border-radius: 5px;
+#review_more p{
+	border: solid 1px #B1ADAD;
+    background: white;
+    border-radius: 3px;
+    padding: 3px 10px;
+    color: #7B7777;
 } 
 .review_more_conSkin{
 	color: black;
     background: white;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
 }
-
-#review_more_content{
-	width: 100%;
-}
 .review_p_con{
 	font-size: 16px;
-    padding-left: 10px;
     line-height: 32px;
     height: 32px;
     margin: 20px 20px;
@@ -359,12 +354,12 @@ input[type="number"] {
 		display: inline-block;
         float: left;
         width: 17px;
-        height: 16px;
+        height: 15px;
         margin-right: 2px;
         background: url(../images/xxQQ.png);
 }
 .starH{
-       background-position:0 16px; 
+       background-position:0 15px; 
 }
 .starL{
 		background-position:0 0; 

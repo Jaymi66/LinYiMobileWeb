@@ -61,7 +61,8 @@ html
 						p.review_con #{assessment.content}
 
 			.review_more#review_more
-				input#review_more_con(placeholder="说两句，评一下")
+				p#review_more_con
+					说两句，评一下
 
 
 
@@ -75,9 +76,7 @@ html
 					span(index="3").star.starH#star2
 					span(index="4").star.starH#star3
 					span(index="5").star.starH#star4
-			button.input_up 提交
-
-						
+			button.input_up 提交				
 		script(type="text/html", id="detail_info_show_con")
 			#detail_info_show #{zone.intro}
 		script(type="text/html", id="video")
@@ -102,16 +101,19 @@ html
 								content: $("#detail_info_show_con").html(),
 						});
 					});
+					//添加评论信息
 					$("#review_more").click(function(){
 						layer.open({
 								type: 1,
-								area: ['100%'],
+								area: ['100%','200px'],
 								title: false,
 								closeBtn: 0,
 								shadeClose: true,
 								skin: 'review_more_conSkin',
 								content: $("#review_more_content").html(),
-								success:function(layero){
+								success:function(layero,index){
+										$("#review_more").hide();
+										$("#review_input_con").focus();
 										$(".strat_HL .star").on('click', function(){
 											$("#layui-layer1 .star").removeClass("starL").addClass("starH");
 											for(var i=0;i<=$(this).index();i++){
@@ -119,15 +121,17 @@ html
 											}
 
 										});
-										//- //输入框根据输入内容的各多少调节大小
-										//- function resizeInput() {
-										//- 	$(this).attr('size', $(this).val().length);
-										//- }
-										//- $("#review_input_con").keyup(resizeInput).each(resizeInput);
+										//输入框根据输入内容的各多少调节大小
+										function resizeInput() {
+										 	$(this).attr('size', $(this).val().length);
+										 }
+										 $("#review_input_con").keyup(resizeInput).each(resizeInput);
+								},
+								end : function(){
+										$("#review_more").show();
 								}
 						});
 					});
-					
 					//加入音频
 					$("#img_video").click(function(){
 						$("#img_video").html($('#video').html());
