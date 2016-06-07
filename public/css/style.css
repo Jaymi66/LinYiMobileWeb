@@ -330,12 +330,13 @@ input[type="number"] {
     position: fixed;
     bottom: 0;
     left: 0;
+    padding-bottom: 20px;
 }
 .review_p_con{
 	font-size: 16px;
     line-height: 32px;
     height: 32px;
-    margin: 20px 20px;
+    margin: 10px 20px;
     clear: both;
 }
 .input_con{
