@@ -6,7 +6,9 @@ html
 		.mobile-container
 			.header.pr
 				img(src="#{zone.img}")
-				btn.img_video.pa#img_video
+				div.pa.img_video
+					audio(controls="controls").audio_size
+						<source src="#{zone.voice}", type="audio/mpeg">
 				p.pa.scenicTitle
 					span #{zone.title}
 					span #{zone.pinyintitle}
@@ -67,8 +69,8 @@ html
 		script#review_more_content(type='text/html')
 			form(action="/addAssessment", method="post")
 				input(type="hidden", name="zoneid", value="#{zone.id}")
-				input#hidden-star(type="hidden", name="star", value="0")
-				input.input_con#review_input_con(type="text", placeholder="请输入评论内容...", name="content", required)
+				input#hidden-star(type="hidden", name="star", value="5")
+				textarea.input_con#review_input_con(type="text", placeholder="请输入评论内容...", name="content", required)
 				p.review_p_con
 					span.strat_PF 评分
 					span.strat_HL
@@ -82,9 +84,6 @@ html
 
 		script(type="text/html", id="detail_info_show_con")
 			#detail_info_show #{zone.intro}
-		script(type="text/html", id="video")
-			audio
-				source(src="#{zone.voice}", type="audio/mpeg")
 		script(src="/libs/jquery/dist/jquery.min.js")
 		script(src="/js/layer/layer.js")
 		script.
@@ -108,19 +107,18 @@ html
 				$("#review_more").click(function(){
 					layer.open({
 						type: 1,
-						area: ['100%','200px'],
+						area: ['100%'],
 						title: false,
 						closeBtn: 0,
 						shadeClose: true,
+						move: false,
+						scrollbar: false,
 						skin: 'review_more_conSkin',
 						content: $("#review_more_content").html(),
 						success:function(layero,index){
-							
 							$("#review_more").hide();
 							$("#review_input_con").focus();
-
 							$(".strat_HL .star").on('click', function(){
-
 								$("#layui-layer1 .star").removeClass("starL").addClass("starH");
 								for(var i=0;i<=$(this).index();i++){
 									$('.strat_HL').children('span').eq(i).removeClass("starH").addClass("starL")
@@ -128,21 +126,10 @@ html
 								}
 
 							});
-
-							//输入框根据输入内容的各多少调节大小
-							function resizeInput() {
-							 	$(this).attr('size', $(this).val().length);
-							}
-							$("#review_input_con").keyup(resizeInput).each(resizeInput);
 						},
 						end : function(){
-								$("#review_more").show();
+							$("#review_more").show();
 						}
 					});
 				});
-				//加入音频
-				$("#img_video").click(function(){
-					$("#img_video").html($('#video').html());
-				});
-
 			})

@@ -168,16 +168,20 @@ input[type="number"] {
 .img_video{
 	top: 50px;
     right: 20px;
-    width: 40px;
-    height: 40px;
-	background:url("../images/video.png");
-	background-size:100%;
+    width: 36px;
+    height: 34px;
+    border-radius: 100%;
+    border: solid 2px #F9F9F9;
+    overflow: hidden;
+} 
+.audio_size{
+	margin:0 -7px;
 }
 .scenicTitle{
+	color: white;
     left: 18px;
     bottom: 20px;
     text-align: center;
-    font-weight: bolder;
 }
 .scenicTitle span{
 	display: block;
@@ -206,6 +210,7 @@ input[type="number"] {
 	padding: 20px 10px;
 	text-align: left;
 	background: white;
+	padding-bottom: 40px;
 }
 .scenic_info p {
 	font-size: 16px;
@@ -335,9 +340,10 @@ input[type="number"] {
 }
 .input_con{
 	display: block;
-    margin:10px 10px;
+    margin: 10px 10px;
     width: 93%;
-	border: solid 1px #eee;
+    height: 80px;
+    border: solid 1px #eee;
     padding: 5px 5px;
     font-size: 16px;
     border-radius: 5px;
