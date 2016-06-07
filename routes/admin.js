@@ -114,9 +114,6 @@ var uploadZoneFile = upload.fields([{
 
 router.post('/addZone', uploadZoneFile, function(req, res, next){
 
-
-	console.log(req.files)
-
 	var _uploadLittleimg = req.files.uploadLittleimg;
 	var _uploadImg = req.files.uploadImg;
 	var _uploadVoice = req.files.uploadVoice;
