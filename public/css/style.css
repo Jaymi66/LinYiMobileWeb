@@ -168,15 +168,15 @@ input[type="number"] {
 .img_video{
 	top: 50px;
     right: 20px;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 100%;
     border: solid 2px #F9F9F9;
     overflow: hidden;
-    background: #182D3C;
+    background: #15191C;
 } 
 .audio_size{
-	margin:1px -8px;
+	margin:-1px -8px;
 }
 .scenicTitle{
 	color: white;
