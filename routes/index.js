@@ -29,7 +29,7 @@ function index(req, res){
 			})
 		}
 
-
+		
 		console.log(2)
 		return project;
 	}).then(function(project){
