@@ -6,9 +6,12 @@ html
 		.mobile-container
 			.header.pr
 				img(src="#{zone.img}")
-				div.pa.img_video
-					audio(controls="controls").audio_size
-						<source src="#{zone.voice}", type="audio/mpeg">
+				//- div.pa.img_video
+				//- 	audio(controls="controls").audio_size
+				//- 		<source src="#{zone.voice}", type="audio/mpeg">
+				//- div.pa.img_video
+				audio(loop="loop" src="")#audio
+				button(class="")#control
 				p.pa.scenicTitle
 					span #{zone.title}
 					span #{zone.pinyintitle}
@@ -132,4 +135,49 @@ html
 						}
 					});
 				});
+				//音频播放函数
+				getSong();
+				//获取歌曲链接并插入dom中
+				function getSong() { 
+					var audio = document.getElementById("audio");
+					audio.src = "#{zone.voice}";
+					playCotrol(); //播放控制函数
+				}
+				//点击播放/暂停
+				function clicks() {
+					var audio = document.getElementById("audio");
+					$("#control").click(function() {
+						if ($("#control").hasClass("play")) {
+							$("#control").addClass("pause").removeClass("play");
+							audio.play();//开始播放
+						} else {
+							$("#control").addClass("play").removeClass("pause");
+							audio.pause();
+						}
+					})
+				}
+				//播放事件监听
+				function playCotrol() {
+					audio.addEventListener("loadeddata", //歌曲一经完整的加载完毕( 也可以写成上面提到的那些事件类型)
+					function() {
+						$("#control").addClass("play");
+						clicks();
+					}, false);
+
+					audio.addEventListener("pause",
+						function() { //监听暂停
+							$("#control").addClass("play").removeClass("pause");
+							if (audio.currentTime == audio.duration) {
+								audio.stop();
+								audio.currentTime = 0;
+							}
+						}, false);
+					audio.addEventListener("play",
+						function() { //监听暂停
+							$("#control").addClass("pause").removeClass("play");
+						}, false);
+					audio.addEventListener("ended", function() {
+						alert(0)
+					}, false)
+				}
 			})
