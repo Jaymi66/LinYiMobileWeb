@@ -11,7 +11,9 @@ function index(req, res){
 
 	Zone.findAll({}).then(function(project){
 
+		console.log(1)
 		return project;
+
 	}).then(function(project){
 
 		for(var i = 0; i<project.length; i++){
@@ -22,21 +24,22 @@ function index(req, res){
 				
 				_thisZone.dataValues.assessmentInZone = count;
 
-
-				console.log(_thisZone)
+				console.log(4)
+				// console.log(_thisZone)
 			})
 		}
 
 
-
+		console.log(2)
 		return project;
 	}).then(function(project){
 
-
+		console.log(3)
 		res.render('index', {
 			title: 'Kinms后台管理',
 			zones: project
 		})
+
 	})
 
 }

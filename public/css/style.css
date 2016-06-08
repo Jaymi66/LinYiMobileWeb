@@ -288,6 +288,13 @@ input[type="number"] {
 	margin-top: 10px;
 	float: left;
 }
+.review_imgXX2 {
+	overflow: hidden;
+}
+.review_imgXX2 img {
+	width: 60px;
+	max-width: 60px;
+}
 .review_imgT{
 	width:16px;
 	color:#C6C6C5;

@@ -57,8 +57,10 @@ html
 							p.review_person
 								img.review_imgP(src="/images/touxiang.png")
 								span.review_personName 游客#{assessment.id}
-							p.review_xx
-								img.review_imgXX(src="/images/xxQ.png")
+							div.review_imgXX
+								- var fiveStar = assessment.star * 20
+								div.review_imgXX2(style="width: #{fiveStar}%") 
+									img(src="/images/xxQ.png")
 							p.review_time
 								img.review_imgT(src="/images/colock.png")
 								| #{moment(assessment.createdAt).format('YYYY年MM月DD日')}
