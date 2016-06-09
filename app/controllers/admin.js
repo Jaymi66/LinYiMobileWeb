@@ -69,9 +69,24 @@ exports.showListZone = function(req, res){
 	
 }
 
-// 渲染AddZone
+// 渲染 AddZone
 exports.showAddZone = function(req, res) {
-	res.render('admin/addZone')
+	res.render('admin/addZone', {
+		zone: {
+			id: '',
+			title: '',
+			pinyintitle: '',
+			littleimg: '',
+			img: '',
+			voice: '',
+			intro: '',
+			type: '',
+			opentime: '',
+			address: '',
+			phone: '',
+			route: ''
+		}
+	})
 }
 
 // 上传文件列表
@@ -88,7 +103,6 @@ exports.uploadZoneFileList = upload.fields([{
 
 // 上传操作
 exports.uploadZoneFile = function(req, res, next){
-
 	var _uploadLittleimg = req.files.uploadLittleimg;
 	var _uploadImg = req.files.uploadImg;
 	var _uploadVoice = req.files.uploadVoice;
@@ -97,35 +111,75 @@ exports.uploadZoneFile = function(req, res, next){
 	if(_uploadImg) req.body.img = "/uploads/" + _uploadImg[0].filename;
 	if(_uploadVoice) req.body.voice = "/uploads/" + _uploadVoice[0].filename;
 	next();
-
 }
 
 // addZone
 exports.addZone = function(req, res){
-	console.log(req.body.title)
-	var project = Zone.build({
-		littleimg: req.body.littleimg,
-		title: req.body.title,
-		pinyintitle: req.body.pinyintitle,
-		img: req.body.img,
-		voice: req.body.voice,
-		intro: req.body.intro,
-		type: req.body.type,
-		opentime: req.body.opentime,
-		address: req.body.address,
-		phone: req.body.phone,
-		route: req.body.route
-	})
-	project.save().then(function(project){
-		if(project){
-			console.log('插入成功');
-			res.redirect('/admin/addZone');
-			return;
-		} else {
-			console.log('插入失败')
-			return;
-		}
-	})
+
+	if( req.body.id ){
+
+		Zone.findById(req.body.id).then(function(project){
+
+			var _zone = {
+				title: req.body.title,
+				pinyintitle: req.body.pinyintitle,
+				intro: req.body.intro,
+				type: req.body.type,
+				opentime: req.body.opentime,
+				address: req.body.address,
+				phone: req.body.phone,
+				route: req.body.route
+			};
+
+			if( req.body.img ) _zone.img = req.body.img
+			if( req.body.littleimg ) _zone.littleimg = req.body.littleimg
+			if( req.body.voice ) _zone.voice = req.body.voice
+
+			Zone.update(_zone, {
+				where: {
+					id: req.body.id
+				}
+			}).then(function(project){
+				if(project){
+					console.log('修改成功');
+					res.redirect('/admin/listZone');
+					return;
+				} else {
+					console.log('修改失败')
+					return false;
+				}
+			})
+
+			return project;
+
+		})
+
+	} else {
+		var zone = Zone.build({
+			littleimg: req.body.littleimg,
+			title: req.body.title,
+			pinyintitle: req.body.pinyintitle,
+			img: req.body.img,
+			voice: req.body.voice,
+			intro: req.body.intro,
+			type: req.body.type,
+			opentime: req.body.opentime,
+			address: req.body.address,
+			phone: req.body.phone,
+			route: req.body.route
+		})
+		zone.save().then(function(project){
+			if(project){
+				console.log('插入成功');
+				res.redirect('/admin/listZone');
+				return;
+			} else {
+				console.log('插入失败')
+				return false;
+			}
+		})
+	}
+
 }
 
 // 修改

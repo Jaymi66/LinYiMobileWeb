@@ -4,33 +4,27 @@ var Assessment = require('../schemas/assessment')
 
 // 渲染首页
 exports.index = function(req, res){
+	
 	Zone.findAll({}).then(function(project){
-		console.log(1)
 		return project;
 	}).then(function(project){
-		for(var i = 0; i<project.length; i++){
+		// for(var i = 0; i<project.length; i++){
+		// 	console.log(project.length)
+		// 	var _thisZone = project[i]
+		// 	Assessment.count({ where: {zoneid: _thisZone.id} }).then(function(count){
+		// 		_thisZone.assessmentInZone = count;
+		// 		console.log(count)
+		// 	})
+		// }
+		// console.log(2)
 
-			var _thisZone = project[i]
-
-			Assessment.count({where: {zoneid: _thisZone.id}}).then(function(count){
-				
-				_thisZone.dataValues.assessmentInZone = count;
-
-				console.log(4)
-				// console.log(_thisZone)
-			})
-		}
-		console.log(2)
-		return project;
-	}).then(function(project){
-
-		console.log(3)
 		res.render('index', {
 			zones: project
 		})
-	})
-}
 
+	})
+	
+}
 
 exports.detail = function(req, res){
 

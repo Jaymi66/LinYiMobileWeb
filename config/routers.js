@@ -17,7 +17,10 @@ module.exports = function(router){
 
 	
 	// index
+
 	router.get('/', Index.index)
+
+
 	router.get('/index', Index.index)
 	router.get('/detail/:id', Index.detail)
 	router.post('/addAssessment', Index.addAssessment)
