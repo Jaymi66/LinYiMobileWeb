@@ -178,7 +178,7 @@ router.get('/updateZone/:id', function(req, res){
 
 // 删除
 router.get('/removeZone/:id', function(req, res){
-	console.log('执行删除' + req.params.id)
+	// console.log('执行删除' + req.params.id)
 
 	Zone.destroy({where: {id: req.params.id}}).then(function(project){
 		if(project){
