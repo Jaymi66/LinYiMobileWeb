@@ -1,9 +1,6 @@
-var express = require('express')
-var router = express.Router()
-
+var User = require('../schemas/user')
+var Zone = require('../schemas/zone')
 var multer = require('multer');
-
-
 
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
@@ -11,41 +8,23 @@ var storage = multer.diskStorage({
 	},
 	// 添加后缀名
 	filename: function (req, file, cb) {
-
 		var _suffix = file.originalname.split('.');
 		cb(null, file.fieldname + '_' + Date.now() + '.' + _suffix[_suffix.length-1]);
-
 	}
 })
-
-
 var upload = multer({storage: storage});
 
 
 
 
-var fs = require('fs');
-var path = require('path');
 
-var User = require('../schemas/user')
-var Zone = require('../schemas/zone')
-
-
-
-// admin page
-router.get('/', function(req, res){
+exports.showLogin = function(req, res){
 	res.render('admin/login', {
 		title: 'Kinms后台管理'
 	})
-})
+}
 
-router.get('/login', function(req, res) {
-	res.render('admin/login', {
-		title: 'Kinms后台管理'
-	})
-})
-
-router.post('/login', function(req, res) {
+exports.login = function(req, res) {
 	if( req.body.username && req.body.password ){
 
 		var _username = req.body.username;
@@ -73,15 +52,15 @@ router.post('/login', function(req, res) {
 	} else {
 		res.redirect('/admin/login')
 	}
-})
+}
 
-router.get('/index', function(req, res){
+exports.showIndex = function(req, res){
 	res.render('admin/index', {
 		title: 'Kinms后台管理'
 	})
-})
+}
 
-router.get('/listZone', function(req, res){
+exports.showListZone = function(req, res){
 
 	Zone.findAll({}).then(function(project){
 		// console.log(project)
@@ -89,19 +68,19 @@ router.get('/listZone', function(req, res){
 			title: 'Kinms后台管理',
 			zones: project
 		})
-		return;
+		return project;
 	});
 	
-})
+}
 
-router.get('/addZone', function(req, res) {
+exports.showAddZone = function(req, res) {
 	res.render('admin/addZone', {
 		title: 'Kinms后台管理'
 	})
-})
+}
 
 
-var uploadZoneFile = upload.fields([{
+exports.uploadZoneFileList = upload.fields([{
 										name: 'uploadLittleimg',
 										maxCount: 1
 									}, {
@@ -112,7 +91,7 @@ var uploadZoneFile = upload.fields([{
 										maxCount: 1
 									}]);
 
-router.post('/addZone', uploadZoneFile, function(req, res, next){
+exports.uploadZoneFile = function(req, res, next){
 
 	var _uploadLittleimg = req.files.uploadLittleimg;
 	var _uploadImg = req.files.uploadImg;
@@ -123,10 +102,10 @@ router.post('/addZone', uploadZoneFile, function(req, res, next){
 	if(_uploadVoice) req.body.voice = "/uploads/" + _uploadVoice[0].filename;
 	next();
 
-}, function(req, res){
+}
 
+exports.addZone = function(req, res){
 	console.log(req.body.title)
-
 	var project = Zone.build({
 		littleimg: req.body.littleimg,
 		title: req.body.title,
@@ -140,9 +119,7 @@ router.post('/addZone', uploadZoneFile, function(req, res, next){
 		phone: req.body.phone,
 		route: req.body.route
 	})
-
 	project.save().then(function(project){
-		
 		if(project){
 			console.log('插入成功');
 			res.redirect('/admin/addZone');
@@ -151,15 +128,11 @@ router.post('/addZone', uploadZoneFile, function(req, res, next){
 			console.log('插入失败')
 			return;
 		}
-		
 	})
-
-	
-
-})
+}
 
 // 修改
-router.get('/updateZone/:id', function(req, res){
+exports.updateZone = function(req, res){
 	
 	var _id = req.params.id;
 
@@ -174,10 +147,10 @@ router.get('/updateZone/:id', function(req, res){
 	})
 
 	
-})
+}
 
 // 删除
-router.get('/removeZone/:id', function(req, res){
+exports.removeZone = function(req, res){
 	// console.log('执行删除' + req.params.id)
 
 	Zone.destroy({where: {id: req.params.id}}).then(function(project){
@@ -188,6 +161,4 @@ router.get('/removeZone/:id', function(req, res){
 	})
 	
 
-})
-
-module.exports = router
+}

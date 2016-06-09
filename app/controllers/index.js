@@ -1,21 +1,11 @@
-var express = require('express');
-var router = express.Router();
-
-var https = require('https')
-
 var Zone = require('../schemas/zone')
-var Assessment = require('../schemas/assessment');
-var moment = require('moment')
+var Assessment = require('../schemas/assessment')
 
-function index(req, res){
-
+exports.index = function(req, res){
 	Zone.findAll({}).then(function(project){
-
 		console.log(1)
 		return project;
-
 	}).then(function(project){
-
 		for(var i = 0; i<project.length; i++){
 
 			var _thisZone = project[i]
@@ -28,8 +18,6 @@ function index(req, res){
 				// console.log(_thisZone)
 			})
 		}
-
-		
 		console.log(2)
 		return project;
 	}).then(function(project){
@@ -39,16 +27,11 @@ function index(req, res){
 			title: 'Kinms后台管理',
 			zones: project
 		})
-
 	})
-
 }
-// home page
-router.get('/', index)
-router.get('/index', index)
 
-// 详情页面
-router.get('/detail/:id', function(req, res){
+
+exports.detail = function(req, res){
 
 	var _id = req.params.id
 
@@ -63,24 +46,17 @@ router.get('/detail/:id', function(req, res){
 			res.render('detail', {
 				title: "Kinms首页",
 				zone: _zoneProject,
-				assessments: project,
-				moment: moment
+				assessments: project
 			})
 		})
 
 	})
 
 	
-})
+}
 
-router.get('/addAssessment/:id', function(req, res){
-	res.render('addAssessment', {
-		title: 'Kinms首页',
-		zoneid: req.params.id
-	})
-})
 
-router.post('/addAssessment', function(req, res){
+exports.addAssessment = function(req, res){
 	var _zoneid = req.body.zoneid;
 	var _star = req.body.star;
 	var _content = req.body.content;
@@ -104,53 +80,37 @@ router.post('/addAssessment', function(req, res){
 	})
 
 	
-})
-
-
-
-
-function getWeather(address){
-	var _url = 'apis.baidu.com';
-	var _data;
-	var _options = {
-		protocol: 'https:',
-		hostname: _url,
-		port: 443,
-		path: 'apistore/weatherservice/citylist?cityname=' + address,
-	    method: 'GET',
-	    headers: {
-	    	'apikey': '24be9feed969fe0a3919e4327ec8a93c'
-	    }
-	}
-
-	https.request(_options, function(_res){
-		console.log(_res)
-
-
-		_res.on('data', function(chunk){
-			console.log(chunk)
-		})
-
-		_res.on('end', function(){
-
-		})
-
-	}).on('erro', function(err){
-		console.log(ree.message)
-	})
-
-	return _data;
 }
 
 
+// 获取天气
+exports.getWeather = function(address){
+	// var _url = 'apis.baidu.com';
+	// var _data;
+	// var _options = {
+	// 	protocol: 'https:',
+	// 	hostname: _url,
+	// 	port: 443,
+	// 	path: 'apistore/weatherservice/citylist?cityname=' + address,
+	//     method: 'GET',
+	//     headers: {
+	//     	'apikey': '24be9feed969fe0a3919e4327ec8a93c'
+	//     }
+	// }
 
-router.get('/getWeather', function(req, res){
+	// https.request(_options, function(_res){
+	// 	console.log(_res)
+	// 	_res.on('data', function(chunk){
+	// 		console.log(chunk)
+	// 	})
 
-	// var weather = getWeather('济南');
+	// 	_res.on('end', function(){
 
-	res.send('123');
+	// 	})
 
+	// }).on('erro', function(err){
+	// 	console.log(ree.message)
+	// })
 
-})
-
-module.exports = router
+	// return _data;
+}
