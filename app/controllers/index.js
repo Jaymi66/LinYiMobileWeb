@@ -1,6 +1,8 @@
 var Zone = require('../schemas/zone')
 var Assessment = require('../schemas/assessment')
 
+
+// 渲染首页
 exports.index = function(req, res){
 	Zone.findAll({}).then(function(project){
 		console.log(1)
@@ -24,7 +26,6 @@ exports.index = function(req, res){
 
 		console.log(3)
 		res.render('index', {
-			title: 'Kinms后台管理',
 			zones: project
 		})
 	})
@@ -44,7 +45,6 @@ exports.detail = function(req, res){
 		}}).then(function(project){
 
 			res.render('detail', {
-				title: "Kinms首页",
 				zone: _zoneProject,
 				assessments: project
 			})
@@ -72,10 +72,10 @@ exports.addAssessment = function(req, res){
 		if(project){
 			console.log('添加评论成功')
 			res.redirect('/detail/'+_zoneid)
-			return;
+			return project;
 		}else{
 			console.log('添加评论失败')
-			return;
+			return project;
 		}
 	})
 

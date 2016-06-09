@@ -17,6 +17,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+
+if ('development' === app.get('env')) {
+	app.set('showStackError', true)
+	app.locals.pretty = true
+}
+
+// site配置信息
+app.locals.title = '旅游网';
+app.locals.description = 'description';
+app.locals.keywords = 'keywords';
+app.locals.author = 'author';
+app.locals.indexImg = '/images/top1.png';
+app.locals.indexContent = '中国曲阜国际孔子文化节,中国曲阜国际孔子文化节';
+
 // 路由
 require('./config/routers')(app)
 

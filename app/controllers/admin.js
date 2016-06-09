@@ -1,7 +1,4 @@
-var User = require('../schemas/user')
-var Zone = require('../schemas/zone')
 var multer = require('multer');
-
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 		cb(null, 'public/uploads');
@@ -14,16 +11,16 @@ var storage = multer.diskStorage({
 })
 var upload = multer({storage: storage});
 
+var User = require('../schemas/user')
+var Zone = require('../schemas/zone')
 
 
-
-
+// 渲染login
 exports.showLogin = function(req, res){
-	res.render('admin/login', {
-		title: 'Kinms后台管理'
-	})
+	res.render('admin/login')
 }
 
+// login操作
 exports.login = function(req, res) {
 	if( req.body.username && req.body.password ){
 
@@ -54,18 +51,17 @@ exports.login = function(req, res) {
 	}
 }
 
+// 渲染index
 exports.showIndex = function(req, res){
-	res.render('admin/index', {
-		title: 'Kinms后台管理'
-	})
+	res.render('admin/index')
 }
 
+// 渲染ListZone
 exports.showListZone = function(req, res){
 
 	Zone.findAll({}).then(function(project){
 		// console.log(project)
 		res.render('admin/listZone', {
-			title: 'Kinms后台管理',
 			zones: project
 		})
 		return project;
@@ -73,13 +69,12 @@ exports.showListZone = function(req, res){
 	
 }
 
+// 渲染AddZone
 exports.showAddZone = function(req, res) {
-	res.render('admin/addZone', {
-		title: 'Kinms后台管理'
-	})
+	res.render('admin/addZone')
 }
 
-
+// 上传文件列表
 exports.uploadZoneFileList = upload.fields([{
 										name: 'uploadLittleimg',
 										maxCount: 1
@@ -91,6 +86,7 @@ exports.uploadZoneFileList = upload.fields([{
 										maxCount: 1
 									}]);
 
+// 上传操作
 exports.uploadZoneFile = function(req, res, next){
 
 	var _uploadLittleimg = req.files.uploadLittleimg;
@@ -104,6 +100,7 @@ exports.uploadZoneFile = function(req, res, next){
 
 }
 
+// addZone
 exports.addZone = function(req, res){
 	console.log(req.body.title)
 	var project = Zone.build({
@@ -140,7 +137,6 @@ exports.updateZone = function(req, res){
 		if(project){
 
 			res.render('admin/addZone', {
-				title: 'Kinms后台管理',
 				zone: project
 			})
 		}
