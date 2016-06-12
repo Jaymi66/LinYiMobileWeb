@@ -145,13 +145,14 @@ html
 								$(this).click(function(){
 										$(".star").removeClass("starL").addClass("starH");
 										for(var i=0;i<=$(this).index();i++){
-										if($(this).index()==0&&$("#star0").hasClass("starL")){
+											if($(this).index()==0&&$("#star0").hasClass("starL")){
 												$("#star0").removeClass("starL").addClass("starH");
-										}
-										else{
+											}
+											else{
 												var star_id="star"+i;
 												$("#"+star_id).removeClass("starH").addClass("starL")
-										}
+											}
+										$('#hidden-star').val(i+1);
 									}
 								})
 							})
