@@ -6,12 +6,8 @@ html
 		.mobile-container
 			.header.pr
 				img(src="#{zone.img}")
-				//- div.pa.img_video
-				//- 	audio(controls="controls").audio_size
-				//- 		<source src="#{zone.voice}", type="audio/mpeg">
-				//- div.pa.img_video
-				audio(loop="loop" src="")#audio
-				button(class="")#control
+				audio(loop="loop" src="#{zone.voice}")#audio
+				button(class="playFirst")#control
 				p.pa.scenicTitle
 					span #{zone.title}
 					span #{zone.pinyintitle}
@@ -72,7 +68,7 @@ html
 
 
 		script#review_more_content(type='text/html')
-			form(action="/addAssessment", method="post")
+			form(action="/addAssessment", method="post").review_form
 				input(type="hidden", name="zoneid", value="#{zone.id}")
 				input#hidden-star(type="hidden", name="star", value="5")
 				textarea.input_con#review_input_con(type="text", placeholder="请输入评论内容...", name="content", required)
@@ -84,7 +80,7 @@ html
 						span(index="3").star.starH#star2
 						span(index="4").star.starH#star3
 						span(index="5").star.starH#star4
-				button.input_up 提交
+					button.input_up 提交
 
 
 		script(type="text/html", id="detail_info_show_con")
@@ -112,12 +108,14 @@ html
 				$("#review_more").click(function(){
 					layer.open({
 						type: 1,
-						area: ['100%'],
+						area: ['100%','150px'],
+						offset: 'rb',
 						title: false,
 						closeBtn: 0,
 						shadeClose: true,
 						move: false,
 						scrollbar: false,
+						fixed:false,
 						skin: 'review_more_conSkin',
 						content: $("#review_more_content").html(),
 						success:function(layero,index){
@@ -160,11 +158,11 @@ html
 				}
 				//播放事件监听
 				function playCotrol() {
-					audio.addEventListener("loadeddata", //歌曲一经完整的加载完毕( 也可以写成上面提到的那些事件类型)
-					function() {
-						$("#control").addClass("play");
+					//audio.addEventListener("loadeddata", //歌曲一经完整的加载完毕( 也可以写成上面提到的那些事件类型)
+					//function() {
+						$("#control").addClass("play").removeClass("playFirst");
 						clicks();
-					}, false);
+					//}, false);
 
 					audio.addEventListener("pause",
 						function() { //监听暂停

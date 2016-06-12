@@ -166,8 +166,8 @@ input[type="number"] {
 	height: 100%;
 }
 #control{ 
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     top: 50px;
     right: 20px;
@@ -175,12 +175,16 @@ input[type="number"] {
     border: solid 1px white;
     outline:none;
 }
+.playFirst{ 
+     background:  url(../images/videopause.png);
+     background-position: -1px -1px;
+}
 .play{ 
      background:  url(../images/videopause.png);
      background-position: -1px -1px;
 }
 .pause{ 
-     background:url(../images/videostart.png);
+     background:url(../images/videozt40.png);
      background-position: -1px -1px;
 }
 .scenicTitle{
@@ -340,9 +344,11 @@ input[type="number"] {
 	color: black;
     background: white;
     position: fixed;
-    bottom: 0;
-    left: 0;
     padding-bottom: 20px;
+    top:0px;
+}
+.review_form{
+	min-width: 320px;
 }
 .review_p_con{
 	font-size: 16px;
@@ -384,10 +390,12 @@ input[type="number"] {
 		background-position:0 0; 
 	}
 .input_up{
-	clear: both;
-	display: block;
-	color: white;
-    margin: 0 auto;
+	font-size: 14px;
+    float: right;
+    /* clear: both; */
+    display: block;
+    color: white;
+    /* margin: 0 auto; */
     padding: 5px 10px;
     border-radius: 5px;
     border: solid 1px #eee;
