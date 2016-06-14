@@ -357,6 +357,7 @@ input[type="number"] {
     height: 32px;
     margin: 10px 20px;
     clear: both;
+    position: relative;
 }
 .input_con{
 	display: block;
@@ -368,7 +369,20 @@ input[type="number"] {
     font-size: 16px;
     border-radius: 5px;
 }
-.strat_PF{
+.demo{
+	 width: 96px;
+    position: absolute;
+    bottom: 27px;
+    left: 65px;
+}
+#default-demo{
+	-webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+#default-demo img{
+    float: left;
+    margin-right:2px;
+}
+/* .strat_PF{
 	 float: left;
 }
 .strat_HL{
@@ -389,15 +403,15 @@ input[type="number"] {
 }
 .starL{
 		background-position:0 0; 
-	}
+	} */
 .input_up{
 	font-size: 14px;
-    float: right;
-    /* clear: both; */
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
     display: block;
     color: white;
-    /* margin: 0 auto; */
-    padding: 5px 10px;
+    padding: 3px 8px;
     border-radius: 5px;
     border: solid 1px #eee;
     background: #FF8E24;

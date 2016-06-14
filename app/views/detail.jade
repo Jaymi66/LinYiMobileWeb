@@ -75,14 +75,14 @@ html
 				onchange="sessionStorage.setItem('review_more_content_textarea', $(this).val());")
 				p.review_p_con
 					span.strat_PF 评分
-					//- div.demo
-					//- 	div#default-demo
-					span.strat_HL
-						span(index="1").star.starH#star0
-						span(index="2").star.starH#star1
-						span(index="3").star.starH#star2
-						span(index="4").star.starH#star3
-						span(index="5").star.starH#star4
+					div.demo
+						div#default-demo
+					//- span.strat_HL
+					//- 	span(index="1").star.starH#star0
+					//- 	span(index="2").star.starH#star1
+					//- 	span(index="3").star.starH#star2
+					//- 	span(index="4").star.starH#star3
+					//- 	span(index="5").star.starH#star4
 					button.input_up#input_up 提交
 
 
@@ -90,6 +90,7 @@ html
 			#detail_info_show #{zone.intro}
 		script(src="/libs/jquery/dist/jquery.min.js")
 		script(src="/js/layer/layer.js")
+		script(src="/js/lib/jquery.raty.min.js")
 		script.
 			$(function(){
 				//详细信息展示
@@ -124,37 +125,18 @@ html
 						success:function(layero,index){
 							$('body').css('overflow','hidden');
 							$("#review_more").hide();
-							//$.fn.raty.defaults.path = '/js/raty/lib/img';
-							//$('#default-demo').raty();
+							$.fn.raty.defaults.path = '/js/lib/img';
+							$('#default-demo').raty({
+							 	width:164,
+								click: function(score, evt) {
+									$('#hidden-star').val(score)
+							}
+							});
 							if(sessionStorage.getItem('review_more_content_textarea')){
 								$("#review_input_con").val("").focus().val(sessionStorage.getItem('review_more_content_textarea'));
 							}else{
 								$("#review_input_con").val("").focus();
 							}
-							//此方法不兼容iphon
-							//- $(".strat_HL .star").on('click', function(){
-							//- 	$("#layui-layer1 .star").removeClass("starL").addClass("starH");
-							//- 	for(var i=0;i<=$(this).index();i++){
-							//- 		$('.strat_HL').children('span').eq(i).removeClass("starH").addClass("starL")
-							//- 		$('#hidden-star').val(i+1)
-							//- 	}
-
-							//- });
-							$(".star").each(function(index){
-								$(this).click(function(){
-										$(".star").removeClass("starL").addClass("starH");
-										for(var i=0;i<=$(this).index();i++){
-											if($(this).index()==0&&$("#star0").hasClass("starL")){
-												$("#star0").removeClass("starL").addClass("starH");
-											}
-											else{
-												var star_id="star"+i;
-												$("#"+star_id).removeClass("starH").addClass("starL")
-											}
-										$('#hidden-star').val(i+1);
-									}
-								})
-							})
 							//点击提交按钮清空输入框
 							$("#input_up").click(function(){
 								sessionStorage.removeItem('review_more_content_textarea')
