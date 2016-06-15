@@ -6,8 +6,8 @@ html
 		.mobile-container
 			.header.pr
 				img(src="#{zone.img}")
-				audio(loop="loop" src="#{zone.voice}")#audio
-				button(class="playFirst")#control
+				audio#audio(loop="loop" src="#{zone.voice}")
+				button#control(class="playFirst")
 				p.pa.scenicTitle
 					span #{zone.title}
 					span #{zone.pinyintitle}
@@ -68,7 +68,7 @@ html
 
 
 		script#review_more_content(type='text/html')
-			form(action="/addAssessment", method="post").review_form
+			form.review_form(action="/addAssessment", method="post")
 				input(type="hidden", name="zoneid", value="#{zone.id}")
 				input#hidden-star(type="hidden", name="star", value="5")
 				textarea.input_con#review_input_con(type="text", placeholder="请输入评论内容...", name="content", required,
