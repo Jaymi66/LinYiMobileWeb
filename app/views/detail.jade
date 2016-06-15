@@ -54,8 +54,8 @@ html
 								img.review_imgP(src="/images/touxiang.png")
 								span.review_personName 游客#{assessment.id}
 							div.review_imgXX
-								- var fiveStar = assessment.star * 20
-								div.review_imgXX2(style="width: #{fiveStar}%") 
+								- var fiveStar = assessment.star * 20;
+								div.review_imgXX2(style="width: #{fiveStar}%", date-star="#{assessment.star}") 
 									img(src="/images/xxQ.png")
 							p.review_time
 								img.review_imgT(src="/images/colock.png")
