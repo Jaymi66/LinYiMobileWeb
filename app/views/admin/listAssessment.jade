@@ -1,0 +1,36 @@
+doctype
+html
+	head
+		include ./inc/head
+	body
+		include ./inc/header
+		.page-wrapper
+			.row
+				.col-lg-12
+					h1.page-header 景点留言管理
+			.row
+				.col-lg-12
+					table.table.table-bordered.table-hover
+						thead
+							tr
+								th 游客ID
+								th 留言内容
+								th 留言时间
+								th 操作
+						tbody
+							each ass in assessment
+								tr
+									td #{ass.id} ---  #{ass.zoneid}
+									td #{ass.content}
+									td #{moment(ass.createdAt).format('YYYY-MM-DD')}
+									td(width="50")
+										button.btn.btn-danger.btn-sm(onclick="removeAssessment(#{ass.zoneid}, #{ass.id})") 删除
+					
+	include ./inc/baseJs
+	script(type="text/javascript").
+		function removeAssessment(zoneid, id){
+			var flag = confirm('确认删除吗？');
+			if(flag){
+				window.location.href= ("/admin/removeAssessment/"+zoneid+'/'+id);
+			}
+		}

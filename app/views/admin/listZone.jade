@@ -26,8 +26,10 @@ html
 									td #{zone.title}
 									td #{zone.type}
 									td #{zone.opentime}
-									td(width="120")
+									td(width="193")
 										a.btn.btn-primary.btn-sm(href="/admin/updateZone/#{zone.id}") 修改
+										| &nbsp;
+										a.btn.btn-primary.btn-sm(href="/admin/listAssessment/#{zone.id}") 管理留言
 										| &nbsp;
 										button.btn.btn-danger.btn-sm(onclick="removeZone(#{zone.id})") 删除
 					

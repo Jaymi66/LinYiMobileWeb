@@ -13,6 +13,7 @@ var upload = multer({storage: storage});
 
 var User = require('../schemas/user')
 var Zone = require('../schemas/zone')
+var Assessment = require('../schemas/assessment')
 
 
 // 渲染login
@@ -209,6 +210,51 @@ exports.removeZone = function(req, res){
 		}
 		return;
 	})
-	
-
 }
+
+// 管理留言
+exports.listAssessment = function(req, res){
+
+	var _id = req.params.id;
+	Assessment.findAll({where: {
+		zoneid: _id
+	}}).then(function(project){
+		res.render('admin/listAssessment', {
+			assessment: project
+		})
+	})
+}
+
+exports.removeAssessment = function(req, res){
+	console.log(req.params.zoneid)
+	console.log(req.params.id)
+
+	var _zoneid = req.params.zoneid;
+	var _id = req.params.id;
+
+	Assessment.destroy({where: {
+		id: _id,
+		zoneid: _zoneid
+	}}).then(function(project){
+		console.log(project);
+
+		if(project){
+			res.redirect('/admin/listAssessment/'+_zoneid);
+		}
+	})
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
