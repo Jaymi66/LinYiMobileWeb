@@ -39,7 +39,7 @@ exports.login = function(req, res) {
 				return;
 			} else {
 				if( _password == project.dataValues.password ){
-					res.redirect('/admin/index');
+					res.redirect('/admin/listZone');
 					return;
 				} else {
 					res.redirect('/admin/login')

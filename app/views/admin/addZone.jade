@@ -4,7 +4,7 @@ html
 		include ./inc/head
 	body
 		include ./inc/header
-		.page-wrapper
+		.page-wrapper-hide.container
 			.row
 				.col-lg-12
 					h1.page-header 添加景点
@@ -12,25 +12,32 @@ html
 				.col-lg-12
 					form.form-horizontal(action="/admin/addZone", method="post", enctype="multipart/form-data")
 						.form-group
-							label.col-sm-2.control-label(for="") 标题
+							label.col-sm-2.control-label(for="") 景点名称
+								span.text-danger *
 							.col-sm-10
 								input.form-control.w2(type="text", name="title", placeholder="标题", value="#{zone.title}", required)
 						.form-group
-							label.col-sm-2.control-label(for="") 拼音标题
+							label.col-sm-2.control-label(for="") 景点名称拼音
+								span.text-danger *
 							.col-sm-10
 								input.form-control.w2(type="text", name="pinyintitle", placeholder="拼音标题", value="#{zone.pinyintitle}", required)
 						.form-group
 							label.col-sm-2.control-label(for="") 预览图
+								span.text-danger *
 							.col-sm-10
 								input.form-control.w2.pull-left(type="file", name="uploadLittleimg", value="#{zone.littleimg}")
 						.form-group
 							label.col-sm-2.control-label(for="") 详情大图
+								span.text-danger *
 							.col-sm-10
 								input.form-control.w2(type="file", name="uploadImg", value="#{zone.img}")
+								| （640*265）
 						.form-group
 							label.col-sm-2.control-label(for="") 语音
+								span.text-danger *
 							.col-sm-10
 								input.form-control.w2(type="file", name="uploadVoice", value="#{zone.voice}")
+								| （格式为.mp3）
 						.form-group
 							label.col-sm-2.control-label(for="") 简介
 							.col-sm-10
