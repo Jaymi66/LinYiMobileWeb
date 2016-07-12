@@ -1,2 +1,3 @@
 # LinYiMobileWeb
-临沂景区手机站  --NodeJS
+
+智慧景区移动端网站
