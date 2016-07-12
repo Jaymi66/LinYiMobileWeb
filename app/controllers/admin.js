@@ -10,52 +10,8 @@ var storage = multer.diskStorage({
 	}
 })
 var upload = multer({storage: storage});
-
-var User = require('../schemas/user')
 var Zone = require('../schemas/zone')
 var Assessment = require('../schemas/assessment')
-
-
-// 渲染login
-exports.showLogin = function(req, res){
-	res.render('admin/login')
-}
-
-// login操作
-exports.login = function(req, res) {
-	if( req.body.username && req.body.password ){
-
-		var _username = req.body.username;
-		var _password = req.body.password;
-		
-		var _user = User.findOne({
-			where: {
-				'username': _username
-			}
-		}).then(function(project){
-			if( !project ){
-				console.log('没有该用户')
-				res.redirect('/admin/login')
-				return;
-			} else {
-				if( _password == project.dataValues.password ){
-					res.redirect('/admin/listZone');
-					return;
-				} else {
-					res.redirect('/admin/login')
-					return;
-				}
-			}
-		})
-	} else {
-		res.redirect('/admin/login')
-	}
-}
-
-// 渲染index
-exports.showIndex = function(req, res){
-	res.render('admin/index')
-}
 
 // 渲染ListZone
 exports.showListZone = function(req, res){
