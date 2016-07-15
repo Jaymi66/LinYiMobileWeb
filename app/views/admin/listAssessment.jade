@@ -19,7 +19,7 @@ html
 						tbody
 							each ass in assessment
 								tr
-									td #{ass.id} ---  #{ass.zoneid}
+									td #{ass.id}
 									td #{ass.content}
 									td #{moment(ass.createdAt).format('YYYY-MM-DD')}
 									td(width="50")
