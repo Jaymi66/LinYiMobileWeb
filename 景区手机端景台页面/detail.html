@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>旅游网</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="mobile-container">
+      <div class="header pr"><img src="uploads/uploadImg_1465800695880.jpg">
+        <audio id="audio" loop="loop" src="uploads/uploadVoice_1465800695886.mp3"></audio>
+        <button id="control" class="playFirst"></button>
+        <p class="pa scenicTitle"><span>123</span><span>123</span></p><img src="images/xxQ.png" class="pa scenicTXX">
+      </div>
+      <div class="scenic scenic_info">
+        <p class="pr"><span class="detail_title">简介</span><span id="detail_info" class="detail_info">简介</span><span class="detail_icon">&gt;</span></p>
+        <p class="pr"><span class="detail_title">类型</span><span class="detail_info">类型</span><span class="detail_icon">&gt;</span></p>
+        <p class="pr"><span class="detail_title">开放时间</span><span class="detail_info">开放时间</span><span class="detail_icon">&gt;</span></p>
+        <p class="pr"><span class="detail_title">地址</span><span class="detail_info">地址</span><span class="detail_icon"><img src="images/position3.png"></span></p>
+        <p class="pr"><span class="detail_title">电话</span><span class="detail_info">电话</span><span class="detail_icon">&gt;</span></p>
+      </div>
+      <div class="scenic-line"></div>
+      <div class="scenic scenic_rote">
+        <p class="rote_title">游览路线</p>
+        <p>旅游路线<a href="#" class="rote_a"></a></p>
+      </div>
+      <div class="scenic-line"></div>
+      <div class="scenic">
+        <p class="review_title"><img src="images/Write.png" class="review_imgW">游客点评<font>(<a>2</a>条评论)</font></p>
+        <div class="review">
+          <div>
+            <p class="review_person"><img src="images/touxiang.png" class="review_imgP"><span class="review_personName">游客8</span></p>
+            <div class="review_imgXX">
+              <div style="width: 40%" date-star="2" class="review_imgXX2"> <img src="images/xxQ.png"></div>
+            </div>
+            <p class="review_time"><img src="images/colock.png" class="review_imgT">2016年06月15日</p>
+          </div>
+          <p class="review_con">xianshi</p>
+        </div>
+        <div class="review">
+          <div>
+            <p class="review_person"><img src="images/touxiang.png" class="review_imgP"><span class="review_personName">游客9</span></p>
+            <div class="review_imgXX">
+              <div style="width: 100%" date-star="5" class="review_imgXX2"> <img src="images/xxQ.png"></div>
+            </div>
+            <p class="review_time"><img src="images/colock.png" class="review_imgT">2016年07月12日</p>
+          </div>
+          <p class="review_con">评论内容</p>
+        </div>
+      </div>
+      <div id="review_more" class="review_more">
+        <p id="review_more_con">说两句，评一下</p>
+      </div>
+    </div>
+    <script id="review_more_content" type="text/html">
+      <form action="/addAssessment" method="post" class="review_form">
+        <input type="hidden" name="zoneid" value="1">
+        <input id="hidden-star" type="hidden" name="star" value="5">
+        <textarea id="review_input_con" type="text" placeholder="请输入评论内容..." name="content" required onchange="sessionStorage.setItem('review_more_content_textarea', $(this).val());" class="input_con"></textarea>
+        <p class="review_p_con"><span class="strat_PF">评分</span>
+          <div class="demo">
+            <div id="default-demo"></div>
+          </div>
+          <button id="input_up" class="input_up">提交</button>
+        </p>
+      </form>
+    </script>
+    <script type="text/html" id="detail_info_show_con">
+      <div id="detail_info_show">简介</div>
+    </script>
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="js/layer/layer.js"></script>
+    <script src="js/lib/jquery.raty.min.js"></script>
+    <script>
+      $(function(){
+      	//详细信息展示
+      	$("#detail_info").click(function(){
+      		layer.open({
+      				type: 0, //page层
+      				area: ['80%','100%'],
+      				title: '详细介绍',
+      				closeBtn: false,
+      				btn: ['X'],
+      				shade: 0.65,//遮罩透明度
+      				move: false,
+      				scrollbar: false,
+      				shift: 0, //0-6的动画形式，-1不开启
+      				content: $("#detail_info_show_con").html(),
+      		});
+      	});
+      	//添加评论信息
+      	$("#review_more").click(function(){
+      		layer.open({
+      			type: 1,
+      			area: ['100%','150px'],//区域大小
+      			offset: 'rb',//位置
+      			title: false,//标题
+      			closeBtn: 0,
+      			shadeClose: true,
+      			move: false,
+      			scrollbar: false,
+      			//- fixed:true,
+      			skin: 'review_more_conSkin',
+      			content: $("#review_more_content").html(),
+      			success:function(layero,index){
+      				$('body').css('overflow','hidden');
+      				$("#review_more").hide();
+      				$.fn.raty.defaults.path = 'js/lib/img';
+      				$('#default-demo').raty({
+      				 	width:164,
+      					click: function(score, evt) {
+      						$('#hidden-star').val(score)
+      				}
+      				});
+      				if(sessionStorage.getItem('review_more_content_textarea')){
+      					$("#review_input_con").val("").focus().val(sessionStorage.getItem('review_more_content_textarea'));
+      				}else{
+      					$("#review_input_con").val("").focus();
+      				}
+      				//点击提交按钮清空输入框
+      				$("#input_up").click(function(){
+      					sessionStorage.removeItem('review_more_content_textarea')
+      				})
+      
+      			},
+      			end : function(){
+      				$("#review_more").show();
+      				$('body').css('overflow','auto');
+      			}
+      		});
+      	});
+      	//音频播放函数
+      	getSong();
+      	//获取歌曲链接并插入dom中
+      	function getSong() { 
+      		var audio = document.getElementById("audio");
+      		audio.src = "uploads/uploadVoice_1465800695886.mp3";
+      		playCotrol(); //播放控制函数
+      	}
+      	//点击播放/暂停
+      	function clicks() {
+      		var audio = document.getElementById("audio");
+      		$("#control").click(function() {
+      			if ($("#control").hasClass("play")) {
+      				$("#control").addClass("pause").removeClass("play");
+      				audio.play();//开始播放
+      			} else {
+      				$("#control").addClass("play").removeClass("pause");
+      				audio.pause();
+      			}
+      		})
+      	}
+      	//播放事件监听
+      	function playCotrol() {
+      		//audio.addEventListener("loadeddata", //歌曲一经完整的加载完毕( 也可以写成上面提到的那些事件类型)
+      		//function() {
+      			$("#control").addClass("play").removeClass("playFirst");
+      			clicks();
+      		//}, false);
+      
+      		audio.addEventListener("pause",
+      			function() { //监听暂停
+      				$("#control").addClass("play").removeClass("pause");
+      				if (audio.currentTime == audio.duration) {
+      					audio.stop();
+      					audio.currentTime = 0;
+      				}
+      			}, false);
+      		audio.addEventListener("play",
+      			function() { //监听暂停
+      				$("#control").addClass("pause").removeClass("play");
+      			}, false);
+      		audio.addEventListener("ended", function() {
+      			alert(0)
+      		}, false)
+      	}
+      })
+    </script>
+  </body>
+</html>

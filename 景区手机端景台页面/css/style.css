@@ -1,0 +1,455 @@
+@charset "utf-8";
+
+html {
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+}
+body, p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	vertical-align: middle;
+	font-weight: normal
+}
+img {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+	line-height: 0;
+	vertical-align: middle
+}
+body {
+	/*font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;*/
+	font-family:  Microsoft YaHei;
+
+	/*color: #666;*/
+	-webkit-user-select: none;
+	-webkit-text-size-adjust: none
+}
+header, section, footer {
+	display: block;
+	margin: 0;
+	padding: 0
+}
+input, select, button, h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-family: inherit
+}
+a {
+	text-decoration: none;
+	border: 0;
+	color: #333
+}
+/* a:visited {
+	color: #333
+} */
+::-webkit-input-placeholder {
+	color: #8b8b8b;
+	font-size: 14px;
+	line-height: 1.2
+}
+input[type="button"], input[type="submit"] {
+	-webkit-appearance: none;
+	outline: none;
+	text-align: center
+}
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none !important;
+	margin: 0
+}
+input[type="number"] {
+	-moz-appearance: textfield;
+	outline: none
+}
+*, :after, :before {
+	box-sizing: border-box
+}
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table
+}
+.clearfix:after {
+	clear: both
+}
+.show {
+	display: block
+}
+.hide {
+	display: none
+}
+.pr {
+	position: relative
+}
+.pa {
+	position: absolute
+}
+/*rem单位转换
+@rem: 16 * 1rem;*/
+/*临沂景区手机站—首页*/
+.mobile-container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 640px;
+	min-width: 320px;
+}
+.btn_gg{
+	width: 25px;
+    height: 21px;
+    top: 19px;
+    right: 12px;
+    background-image: url(../images/gongneng.png);
+    background-size: 100%;
+}
+.headerOne{
+	height:500px ;
+	background: url(../images/top1.png) no-repeat left top;
+	background-size:100%;
+}
+.ad_run{
+	padding: 10px 5px 10px 10px;
+	background: #555553;
+}
+.ad_run_con{
+	color: #fff;
+	font-weight: bolder;
+	font-size: 13px;
+}
+ .img_bottom{
+	font-size: 16px;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    color: white;
+    line-height: 1.89;
+    padding: 0 10px 0 30px;
+}
+.img_bottom font{
+	color: white;
+	float: left;
+}
+.img_bottom_con{
+    float: right;
+}
+.img_bottom_con img{
+	width: 15px;
+	margin:0 5px;
+}
+.img_bottom_con .img_comment{
+	margin-left:20px;
+}
+.img_bottom_con a{
+	color: white;
+	font-size: 12px;
+}
+.scenic-lineOne{
+	text-align: center;
+	height: 60px;
+	background: url(../images/bg-2.png);
+	background-size: 100% 100%;
+}
+.scenic-lineOne a{
+	display: inline-block;
+	width: 100%;
+	background: rgba(255,255,255,0.5);
+	color: #4C4C4C;
+	font-size: 16px;
+	text-decoration: underline;
+	line-height: 50px;
+}
+/*临沂景区手机站—三级2*/
+.header{
+	width: 100%;
+	height: 100%;
+}
+#control{ 
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    border-radius: 100%;
+    border: solid 1px white;
+    outline:none;
+}
+.playFirst{ 
+     background:  url(../images/videopause.png);
+     background-position: -1px -1px;
+}
+.play{ 
+     background:  url(../images/videopause.png);
+     background-position: -1px -1px;
+}
+.pause{ 
+     background:url(../images/videozt40.png);
+     background-position: -1px -1px;
+}
+.scenicTitle{
+	color: white;
+    left: 18px;
+    bottom: 20px;
+    text-align: center;
+}
+.scenicTitle span{
+	display: block;
+}
+.scenicTitle span:nth-of-type(1){
+	font-size: 20px;
+}
+.scenicTitle span:nth-of-type(2){
+	font-size: 15px;
+}
+ #detail_info_show{
+	color:#E4D9D9;
+	font-size: 14px;
+	margin:0 auto;
+    line-height: 25px;
+    height: 63%; 
+    padding-right: 8px;
+    overflow-y: scroll; 
+}  
+.scenicTXX{
+	width: 93px;
+    bottom: 37px;
+    right: 30px;
+}
+.scenic{
+	padding: 20px 10px;
+	text-align: left;
+	background: white;
+	padding-bottom: 40px;
+}
+.scenic_info p {
+	font-size: 16px;
+	line-height: 3;
+	position: relative;
+	padding-right: 50px;
+	padding-left: 80px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.scenic_info p .detail_title {
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: #666;
+}
+.scenic_info p .detail_icon {
+	font-family: 黑体;
+	color: #666;
+	font-weight:bolder;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.scenic_info p img{
+	width:14px;
+}
+.scenic-line{
+	height: 10px;
+	background: #EDEEF0;
+	/* background: url(../images/bg-2.png); */
+	background-size: 100% 100%;
+}
+.scenic_rote p{
+	font-size: 16px;
+	line-height: 2;
+}
+.rote_title{
+	color: #666;
+}
+.rote_a{
+	color: #4EAEFD;
+}
+.review{
+	border-top: solid 1px #C6C6C5;
+	padding: 15px 0;
+}
+.review_title{
+	font-size: 16px;
+	margin-bottom: 10px;
+	color: #666;
+}
+.review_title font{
+	font-size: 12px;
+}
+.review_title a{
+	color: #FF8C23;
+}
+.review_imgW{
+	width: 40px;
+	margin-right: 5px;
+}
+.review_imgP{
+	width: 47px;
+	margin-right: 5px;
+}
+.review_imgXX{
+	width: 60px;
+	margin-top: 10px;
+	float: left;
+}
+.review_imgXX2 {
+	overflow: hidden;
+}
+.review_imgXX2 img {
+	width: 60px;
+	max-width: 60px;
+}
+.review_imgT{
+	width:16px;
+	color:#C6C6C5;
+	margin-right: 5px;
+	margin-top: -5px;
+}
+.review_person{
+	float: left;
+	text-align: center;
+}
+.review_personName{
+	display: block;
+	font-size: 12px;
+	color: #4CB1D3;
+}
+.review_time{
+	float: right;
+	color: #666;
+	font-size: 14px;
+}
+.review_con{
+	font-size: 16px;
+	padding: 10px 0;
+	line-height: 1.7;
+	clear: both;
+}
+.review_more{
+	position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    padding: 8px;
+    background: #EDEEF0;
+}
+#review_more p{
+	border: solid 1px #B1ADAD;
+    background: white;
+    border-radius: 3px;
+    padding: 3px 10px;
+    color: #7B7777;
+} 
+.review_more_conSkin{
+	color: black;
+    background: white;
+    position: fixed;
+    padding-bottom: 20px;
+    top:0px;
+}
+.review_form{
+	min-width: 320px;
+}
+.review_p_con{
+	font-size: 16px;
+    line-height: 32px;
+    height: 32px;
+    margin: 10px 20px;
+    clear: both;
+    position: relative;
+}
+.input_con{
+	display: block;
+    margin: 10px 10px;
+    width: 93%;
+    height: 80px;
+    border: solid 1px #eee;
+    padding: 5px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.demo{
+	 width: 96px;
+    position: absolute;
+    bottom: 27px;
+    left: 65px;
+}
+#default-demo{
+	-webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+#default-demo img{
+    float: left;
+    margin-right:2px;
+}
+/* .strat_PF{
+	 float: left;
+}
+.strat_HL{
+	    margin:8px 0 0 10px;
+	    float: left;
+	    display: inline-block;
+}
+.star{
+		display: inline-block;
+        float: left;
+        width: 17px;
+        height: 15px;
+        margin-right: 2px;
+        background: url(../images/xxQQ.png);
+}
+.starH{
+       background-position:0 15px; 
+}
+.starL{
+		background-position:0 0; 
+	} */
+.input_up{
+	font-size: 14px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: block;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: solid 1px #eee;
+    background: #FF8E24;
+}
+@media only screen and (min-width:320px) and (max-width:359px) {
+	html {
+		font-size: 12px !important
+	}
+	.mobile-container {
+		min-width: 320px;
+		max-width: 359px
+	}
+}
+@media only screen and (min-width:360px) and (max-width:479px) {
+	html {
+		font-size: 13px !important
+	}
+	.mobile-container {
+		min-width: 360px;
+		max-width: 479px
+	}
+}
+@media only screen and (min-width:480px) and (max-width:539px) {
+	html {
+		font-size: 14px !important
+	}
+	.mobile-container {
+		min-width: 480px;
+		max-width: 539px
+	}
+}
+@media only screen and (min-width:540px) and (max-width:640px) {
+	html {
+		font-size: 16px !important
+	}
+	.mobile-container {
+		min-width: 540px
+	}
+}
+
+
